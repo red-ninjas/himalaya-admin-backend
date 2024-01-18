@@ -1,0 +1,104 @@
+{
+  "name": "@himalaya/dashboard-nest",
+  "version": "1.0.0",
+  "prettier": "./prettier.json",
+  "description": "Administration Dashboard Connector for @himalaya/dashboard",
+  "author": "RedNinjas <info@redninjas.dev>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "types": "dist/mjs/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "*.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.mjs.json && yarn run build:after",
+    "prepare": "yarn run build",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "cli": "ts-node -r tsconfig-paths/register ./src/lib/cli/index.ts",
+    "build:after": "ts-node -r tsconfig-paths/register ./scripts/build-bundle.ts",
+    "docs": "npx @compodoc/compodoc -p tsconfig.json -s"
+  },
+  "keywords": [
+    "nestjs"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/red-ninjas/himalaya-dashboard-nest"
+  },
+  "bugs": "https://github.com/red-ninjas/himalaya-dashboard-nest",
+  "devDependencies": {
+    "@compodoc/compodoc": "^1.1.23",
+    "@nestjs/common": "^10.2.1",
+    "@nestjs/config": "^2.3.4",
+    "@nestjs/core": "^10.2.1",
+    "@nestjs/cqrs": "^10.2.1",
+    "@nestjs/swagger": "^7.1.17",
+    "@types/fs-extra": "^11",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.10.8",
+    "@types/validator": "^13.11.8",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "clean-package": "^2.2.0",
+    "cowsay": "^1.5.0",
+    "env-cmd": "^10.1.0",
+    "fs-extra": "^11.2.0",
+    "lodash": "^4.17.21",
+    "path": "^0.12.7",
+    "prettier": "1.17.0",
+    "rxjs": "^7.1.0",
+    "ts-node": "^10",
+    "tsc-watch": "^6",
+    "tsconfig-paths": "^4",
+    "tslint": "^5",
+    "typeorm": "^0.3.19",
+    "typescript": "^5",
+    "url": "^0.11.3",
+    "validator": "^13.0.0"
+  },
+  "peerDependencies": {
+    "@nestjs/common": ">=10.2.1",
+    "@nestjs/core": ">=10.2.1",
+    "@nestjs/cqrs": ">=10.2.1",
+    "@nestjs/passport": ">=10.0.0",
+    "@nestjs/typeorm": ">=10.0.1",
+    "class-transformer": ">=0.5.1",
+    "class-validator": ">=0.14.1",
+    "passport": ">=0.7.0",
+    "passport-http-bearer": ">=1.0.1",
+    "rxjs": ">=7.2.0"
+  },
+  "dependencies": {
+    "@nestjs/passport": "^10.0.0",
+    "@nestjs/typeorm": "^10.0.1",
+    "passport": "^0.7.0",
+    "passport-http-bearer": "^1.0.1",
+    "reflect-metadata": "0.1.13",
+    "selfsigned": "^2.4.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "packageManager": "yarn@4.0.2"
+}

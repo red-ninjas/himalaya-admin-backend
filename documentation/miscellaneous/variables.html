@@ -1,0 +1,951 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@himalaya/dashboard-nest documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#AccessTokenRequired" title="src/auth/decorators/access-token-decorator.ts" ><b>AccessTokenRequired</b>&nbsp;&nbsp;&nbsp;(src/.../access-token-decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ADMIN_FIELD_DECORATOR_KEY" title="src/constants.ts" ><b>ADMIN_FIELD_DECORATOR_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#applyFilter" title="src/query/helpers/index.ts" ><b>applyFilter</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#applySort" title="src/query/helpers/index.ts" ><b>applySort</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CommandHandlers" title="src/auth/auth.module.ts" ><b>CommandHandlers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CONFIG_INJECT_KEY" title="src/constants.ts" ><b>CONFIG_INJECT_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DEFAULT_ADMIN_ROLE_NAME" title="src/auth/constants/index.ts" ><b>DEFAULT_ADMIN_ROLE_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DEFAULT_SYSTEM_PERMISSION_GROUP" title="src/auth/constants/index.ts" ><b>DEFAULT_SYSTEM_PERMISSION_GROUP</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DEFAULT_SYSTEM_ROLES_PERMISSION_NAME" title="src/auth/constants/index.ts" ><b>DEFAULT_SYSTEM_ROLES_PERMISSION_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DEFAULT_USER_ROLE_NAME" title="src/auth/constants/index.ts" ><b>DEFAULT_USER_ROLE_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EntityAccessor" title="src/query/decorators.ts" ><b>EntityAccessor</b>&nbsp;&nbsp;&nbsp;(src/.../decorators.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EntityAccessorValidation" title="src/query/decorators/entity-accessor.decorator.ts" ><b>EntityAccessorValidation</b>&nbsp;&nbsp;&nbsp;(src/.../entity-accessor.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EventHandlers" title="src/auth/auth.module.ts" ><b>EventHandlers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#OAUTH2_SERVER_OPTIONS" title="src/auth/auth.constants.ts" ><b>OAUTH2_SERVER_OPTIONS</b>&nbsp;&nbsp;&nbsp;(src/.../auth.constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#OAUTH2_STRATEGY_METADATA" title="src/auth/services/strategy.explorer.ts" ><b>OAUTH2_STRATEGY_METADATA</b>&nbsp;&nbsp;&nbsp;(src/.../strategy.explorer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Oauth2GrantStrategy" title="src/auth/decorators/oauth2-grant-strategy.decorator.ts" ><b>Oauth2GrantStrategy</b>&nbsp;&nbsp;&nbsp;(src/.../oauth2-grant-strategy.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Oauth2Strategies" title="src/auth/auth.module.ts" ><b>Oauth2Strategies</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Providers" title="src/auth/auth.module.ts" ><b>Providers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#QUERY_MODULE_CONFIG_KEY" title="src/query/constants/index.ts" ><b>QUERY_MODULE_CONFIG_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#QueryHandlers" title="src/auth/auth.module.ts" ><b>QueryHandlers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Resolvers" title="src/auth/auth.module.ts" ><b>Resolvers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Sagas" title="src/auth/auth.module.ts" ><b>Sagas</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ServiceNames" title="src/auth/auth.module.ts" ><b>ServiceNames</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Services" title="src/auth/auth.module.ts" ><b>Services</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/auth/decorators/access-token-decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AccessTokenRequired"></a>
+                    <span class="name">
+                        <span ><b>AccessTokenRequired</b></span>
+                        <a href="#AccessTokenRequired"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; UseGuards(AuthGuard(&#x27;access-token&#x27;))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/constants.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ADMIN_FIELD_DECORATOR_KEY"></a>
+                    <span class="name">
+                        <span ><b>ADMIN_FIELD_DECORATOR_KEY</b></span>
+                        <a href="#ADMIN_FIELD_DECORATOR_KEY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;admin-field&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CONFIG_INJECT_KEY"></a>
+                    <span class="name">
+                        <span ><b>CONFIG_INJECT_KEY</b></span>
+                        <a href="#CONFIG_INJECT_KEY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;AdminOptions&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/query/helpers/index.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyFilter"></a>
+                    <span class="name">
+                        <span ><b>applyFilter</b></span>
+                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(
+  fields: ResourceDictonary&lt;MetaDataResult&gt;,
+  field: FilterableRequest,
+  queryBuilder: SelectQueryBuilder&lt;any&gt;,
+) &#x3D;&gt; {
+  const foundField &#x3D; fields[field.field];
+
+  if (foundField &#x3D;&#x3D;&#x3D; undefined || foundField.isFilterable !&#x3D;&#x3D; true) {
+    throw new UnauthorizedException(
+      field.field + &#x27; is not accessable as filter field.&#x27;,
+    );
+  } else {
+    const filter &#x3D; {};
+
+    if (foundField.filterMatch &#x3D;&#x3D; undefined) {
+      foundField.filterMatch &#x3D; FilterMatch.STARTS_OR_ENDS;
+    }
+
+    if (foundField.filterMatch &#x3D;&#x3D; FilterMatch.STARTS_WITH) {
+      filter[field.field] &#x3D; ILike(&#x60;${field.term}%&#x60;);
+    } else if (foundField.filterMatch &#x3D;&#x3D; FilterMatch.EXACT) {
+      filter[field.field] &#x3D; &#x60;${field.term}&#x60;;
+    } else if (foundField.filterMatch &#x3D;&#x3D; FilterMatch.ENDS_WITH) {
+      filter[field.field] &#x3D; ILike(&#x60;%${field.term}&#x60;);
+    } else if (foundField.filterMatch &#x3D;&#x3D; FilterMatch.STARTS_OR_ENDS) {
+      filter[field.field] &#x3D; ILike(&#x60;%${field.term}%&#x60;);
+    }
+    queryBuilder.where(filter);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applySort"></a>
+                    <span class="name">
+                        <span ><b>applySort</b></span>
+                        <a href="#applySort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(
+  fields: ResourceDictonary&lt;MetaDataResult&gt;,
+  field: SortableRequest,
+  queryBuilder: SelectQueryBuilder&lt;any&gt;,
+) &#x3D;&gt; {
+  const foundField &#x3D; fields[field.field];
+
+  if (foundField &#x3D;&#x3D;&#x3D; undefined || foundField.isSortable !&#x3D;&#x3D; true) {
+    throw new UnauthorizedException(
+      field.field + &#x27; is not accessable as order field.&#x27;,
+    );
+  } else {
+    queryBuilder.orderBy(field.field, field.order);
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/auth/auth.module.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CommandHandlers"></a>
+                    <span class="name">
+                        <span ><b>CommandHandlers</b></span>
+                        <a href="#CommandHandlers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[CreateClientHandler, CreateAccessTokenHandler]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EventHandlers"></a>
+                    <span class="name">
+                        <span ><b>EventHandlers</b></span>
+                        <a href="#EventHandlers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Oauth2Strategies"></a>
+                    <span class="name">
+                        <span ><b>Oauth2Strategies</b></span>
+                        <a href="#Oauth2Strategies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  ClientCredentialsStrategy,
+  RefreshTokenStrategy,
+  PasswordStrategy,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Providers"></a>
+                    <span class="name">
+                        <span ><b>Providers</b></span>
+                        <a href="#Providers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[StrategyExplorer, Oauth2GrantStrategyRegistry]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="QueryHandlers"></a>
+                    <span class="name">
+                        <span ><b>QueryHandlers</b></span>
+                        <a href="#QueryHandlers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Resolvers"></a>
+                    <span class="name">
+                        <span ><b>Resolvers</b></span>
+                        <a href="#Resolvers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Sagas"></a>
+                    <span class="name">
+                        <span ><b>Sagas</b></span>
+                        <a href="#Sagas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ServiceNames"></a>
+                    <span class="name">
+                        <span ><b>ServiceNames</b></span>
+                        <a href="#ServiceNames"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  &#x27;ClientRepositoryInterface&#x27;,
+  &#x27;AccessTokenRepositoryInterface&#x27;,
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Services"></a>
+                    <span class="name">
+                        <span ><b>Services</b></span>
+                        <a href="#Services"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  { provide: &#x27;ClientRepositoryInterface&#x27;, useClass: ClientRepository },
+  {
+    provide: &#x27;AccessTokenRepositoryInterface&#x27;,
+    useClass: AccessTokenRepository,
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/auth/constants/index.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DEFAULT_ADMIN_ROLE_NAME"></a>
+                    <span class="name">
+                        <span ><b>DEFAULT_ADMIN_ROLE_NAME</b></span>
+                        <a href="#DEFAULT_ADMIN_ROLE_NAME"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;admin&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DEFAULT_SYSTEM_PERMISSION_GROUP"></a>
+                    <span class="name">
+                        <span ><b>DEFAULT_SYSTEM_PERMISSION_GROUP</b></span>
+                        <a href="#DEFAULT_SYSTEM_PERMISSION_GROUP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;system&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DEFAULT_SYSTEM_ROLES_PERMISSION_NAME"></a>
+                    <span class="name">
+                        <span ><b>DEFAULT_SYSTEM_ROLES_PERMISSION_NAME</b></span>
+                        <a href="#DEFAULT_SYSTEM_ROLES_PERMISSION_NAME"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;roles&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DEFAULT_USER_ROLE_NAME"></a>
+                    <span class="name">
+                        <span ><b>DEFAULT_USER_ROLE_NAME</b></span>
+                        <a href="#DEFAULT_USER_ROLE_NAME"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;user&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/query/decorators.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EntityAccessor"></a>
+                    <span class="name">
+                        <span ><b>EntityAccessor</b></span>
+                        <a href="#EntityAccessor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(options?: IEntityAccessorOptions) &#x3D;&gt; {
+  return function(object: Object, propertyKey: string) {
+    Reflect.defineMetadata(
+      ADMIN_FIELD_DECORATOR_KEY,
+      options || {},
+      object,
+      propertyKey,
+    );
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/query/decorators/entity-accessor.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EntityAccessorValidation"></a>
+                    <span class="name">
+                        <span ><b>EntityAccessorValidation</b></span>
+                        <a href="#EntityAccessorValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; UseGuards(EntityAccessorGuard)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/auth/auth.constants.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OAUTH2_SERVER_OPTIONS"></a>
+                    <span class="name">
+                        <span ><b>OAUTH2_SERVER_OPTIONS</b></span>
+                        <a href="#OAUTH2_SERVER_OPTIONS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;OAUTH2_SERVER_OPTIONS&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/auth/services/strategy.explorer.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OAUTH2_STRATEGY_METADATA"></a>
+                    <span class="name">
+                        <span ><b>OAUTH2_STRATEGY_METADATA</b></span>
+                        <a href="#OAUTH2_STRATEGY_METADATA"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;__oauth2GrantStrategy__&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/auth/decorators/oauth2-grant-strategy.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Oauth2GrantStrategy"></a>
+                    <span class="name">
+                        <span ><b>Oauth2GrantStrategy</b></span>
+                        <a href="#Oauth2GrantStrategy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(name: string): ClassDecorator &#x3D;&gt; {
+  return (target: object) &#x3D;&gt; {
+    Reflect.defineMetadata(OAUTH2_STRATEGY_METADATA, name, target);
+  };
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/query/constants/index.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="QUERY_MODULE_CONFIG_KEY"></a>
+                    <span class="name">
+                        <span ><b>QUERY_MODULE_CONFIG_KEY</b></span>
+                        <a href="#QUERY_MODULE_CONFIG_KEY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;AdminAuthConfig&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
