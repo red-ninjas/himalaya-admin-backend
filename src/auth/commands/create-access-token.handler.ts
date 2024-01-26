@@ -3,8 +3,8 @@ import { Inject } from '@nestjs/common';
 import { CreateAccessTokenCommand } from './create-access-token.command';
 
 import * as crypto from 'crypto';
-import { ClientEntity } from '../entities/client.entity';
-import { AccessTokenEntity } from '../entities/accoss-token.entity';
+import { Oauth2ClientEntity } from '../entities/oauth2-client.entity';
+import { Oauth2AccessTokenEntity } from '../entities/oauth2-accoss-token.entity';
 import { AccessTokenCreatedEvent } from '../events/access-token-created.event';
 import { ClientRepositoryInterface } from '../interfaces/client-repository.interface';
 import { AccessTokenRepositoryInterface } from '../interfaces/access-token-repository.interface';
@@ -26,12 +26,12 @@ export class CreateAccessTokenHandler
    * @param command
    */
   async execute(command: CreateAccessTokenCommand) {
-    const client: ClientEntity = await this.clientRepository.find(
+    const client: Oauth2ClientEntity = await this.clientRepository.find(
       command.clientId,
     );
     // @fixme: Shall we remove old tokens ?
 
-    const accessToken = new AccessTokenEntity();
+    const accessToken = new Oauth2AccessTokenEntity();
     accessToken.client = client;
     accessToken.createdAt = new Date();
     accessToken.createdFrom = command.request;

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -140,73 +140,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="configure"></a>
-                    <span class="name">
-                        <span ><b>configure</b></span>
-                        <a href="#configure"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>configure(consumer: MiddlewareConsumer)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/admin.module.ts:31</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>consumer</td>
-                                            <td>
-                                                        <code>MiddlewareConsumer</code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="forRoot"></a>
                     <span class="name">
                             <span class="modifier">Static</span>
@@ -225,8 +158,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/admin.module.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/admin.module.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -295,8 +228,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/admin.module.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/admin.module.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -322,13 +255,10 @@
   DynamicModule,
   Global,
   Logger,
-  MiddlewareConsumer,
   Module,
-  NestModule,
   OnModuleInit,
   ValidationPipe,
 } from &#x27;@nestjs/common&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import {
   APP_INTERCEPTOR,
   APP_PIPE,
@@ -338,16 +268,15 @@ import {
 import { AdminConfig } from &#x27;./admin.config&#x27;;
 import { AuthModule } from &#x27;./auth&#x27;;
 import { CONFIG_INJECT_KEY } from &#x27;./constants&#x27;;
-import { QueryModule } from &#x27;./query/query.module&#x27;;
+import { CrudModule } from &#x27;./crud/crud.module&#x27;;
+import { JwtModule } from &#x27;@nestjs/jwt&#x27;;
 
 @Module({})
 @Global()
-export class AdminModule implements OnModuleInit, NestModule {
+export class AdminModule implements OnModuleInit {
   private readonly logger &#x3D; new Logger(&#x27;AdminModule&#x27;);
 
   constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
-
-  configure(consumer: MiddlewareConsumer) {}
 
   public async onModuleInit() {
     this.logger.log(&#x27;Admin Module Initialized&#x27;);
@@ -358,14 +287,18 @@ export class AdminModule implements OnModuleInit, NestModule {
       module: AdminModule,
       imports: [
         AuthModule.forRoot(options.auth),
-        QueryModule.forRoot(options.query),
+        CrudModule.forRoot(options.query),
+        JwtModule.register({
+          global: true,
+          secret: options.auth.jwtSecret,
+          signOptions: { expiresIn: &#x27;30d&#x27; },
+        }),
       ],
       providers: [
         {
           provide: CONFIG_INJECT_KEY,
           useValue: options,
         },
-        ConfigService,
         {
           useFactory: () &#x3D;&gt; {
             return new ValidationPipe({ transform: true });
@@ -381,7 +314,7 @@ export class AdminModule implements OnModuleInit, NestModule {
           inject: [Reflector],
         },
       ],
-      exports: [],
+      exports: [JwtModule],
     };
   }
 }

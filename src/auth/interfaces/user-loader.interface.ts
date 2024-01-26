@@ -1,4 +1,5 @@
-import { UserInterface } from './user.interface';
+import { DataSource } from 'typeorm';
+import { UserClass } from './user.interface';
 
 /**
  * This is the main interface you have to implement in order to have the appropriate
@@ -9,5 +10,5 @@ export interface UserLoaderInterface {
    *
    * @param userId
    */
-  load(userId: string): Promise<UserInterface>;
+  load(dataSource: DataSource, userId: string): Promise<UserClass>;
 }

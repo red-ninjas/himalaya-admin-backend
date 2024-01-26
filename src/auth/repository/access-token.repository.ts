@@ -2,18 +2,20 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { DeleteResult, Repository } from 'typeorm';
-import { AccessTokenEntity } from '../entities/accoss-token.entity';
+import { Oauth2AccessTokenEntity } from '../entities/oauth2-accoss-token.entity';
 import { AccessTokenNotFoundException } from '../exceptions/access-token-not-found.exception';
 import { AccessTokenRepositoryInterface } from '../interfaces/access-token-repository.interface';
 
 @Injectable()
 export class AccessTokenRepository implements AccessTokenRepositoryInterface {
   constructor(
-    @InjectRepository(AccessTokenEntity)
-    private readonly repository: Repository<AccessTokenEntity>,
+    @InjectRepository(Oauth2AccessTokenEntity)
+    private readonly repository: Repository<Oauth2AccessTokenEntity>,
   ) {}
 
-  async findByAccessToken(accessToken: string): Promise<AccessTokenEntity> {
+  async findByAccessToken(
+    accessToken: string,
+  ): Promise<Oauth2AccessTokenEntity> {
     const token = await this.repository.findOne({
       where: {
         accessToken: accessToken,
@@ -28,7 +30,9 @@ export class AccessTokenRepository implements AccessTokenRepositoryInterface {
     return token;
   }
 
-  async findByRefreshToken(refreshToken: string): Promise<AccessTokenEntity> {
+  async findByRefreshToken(
+    refreshToken: string,
+  ): Promise<Oauth2AccessTokenEntity> {
     const token = await this.repository.findOne({
       where: {
         refreshToken: refreshToken,
@@ -43,11 +47,13 @@ export class AccessTokenRepository implements AccessTokenRepositoryInterface {
     return token;
   }
 
-  async create(accessToken: AccessTokenEntity): Promise<AccessTokenEntity> {
+  async create(
+    accessToken: Oauth2AccessTokenEntity,
+  ): Promise<Oauth2AccessTokenEntity> {
     return await this.repository.save(accessToken);
   }
 
-  async delete(accessToken: AccessTokenEntity): Promise<DeleteResult> {
+  async delete(accessToken: Oauth2AccessTokenEntity): Promise<DeleteResult> {
     return await this.repository.delete(accessToken.id);
   }
 

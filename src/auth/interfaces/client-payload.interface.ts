@@ -1,4 +1,4 @@
-import { AccessTokenEntity } from '../entities/accoss-token.entity';
+import { Oauth2AccessTokenEntity } from '../entities/oauth2-accoss-token.entity';
 import {
   Oauth2PayloadInterface,
   Oauth2PayloadType,
@@ -13,7 +13,7 @@ export class ClientPayload implements Oauth2PayloadInterface {
   readonly type: Oauth2PayloadType = Oauth2PayloadType.CLIENT;
 
   constructor(
-    public readonly accessToken: AccessTokenEntity,
+    public readonly accessToken: Oauth2AccessTokenEntity,
     public readonly id: string,
     public readonly clientId: string,
     public readonly name: string,

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -334,8 +334,8 @@ import { Inject } from &#x27;@nestjs/common&#x27;;
 import { CreateAccessTokenCommand } from &#x27;./create-access-token.command&#x27;;
 
 import * as crypto from &#x27;crypto&#x27;;
-import { ClientEntity } from &#x27;../entities/client.entity&#x27;;
-import { AccessTokenEntity } from &#x27;../entities/accoss-token.entity&#x27;;
+import { Oauth2ClientEntity } from &#x27;../entities/oauth2-client.entity&#x27;;
+import { Oauth2AccessTokenEntity } from &#x27;../entities/oauth2-accoss-token.entity&#x27;;
 import { AccessTokenCreatedEvent } from &#x27;../events/access-token-created.event&#x27;;
 import { ClientRepositoryInterface } from &#x27;../interfaces/client-repository.interface&#x27;;
 import { AccessTokenRepositoryInterface } from &#x27;../interfaces/access-token-repository.interface&#x27;;
@@ -357,12 +357,12 @@ export class CreateAccessTokenHandler
    * @param command
    */
   async execute(command: CreateAccessTokenCommand) {
-    const client: ClientEntity &#x3D; await this.clientRepository.find(
+    const client: Oauth2ClientEntity &#x3D; await this.clientRepository.find(
       command.clientId,
     );
     // @fixme: Shall we remove old tokens ?
 
-    const accessToken &#x3D; new AccessTokenEntity();
+    const accessToken &#x3D; new Oauth2AccessTokenEntity();
     accessToken.client &#x3D; client;
     accessToken.createdAt &#x3D; new Date();
     accessToken.createdFrom &#x3D; command.request;

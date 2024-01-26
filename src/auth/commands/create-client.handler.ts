@@ -4,7 +4,7 @@ import { CreateClientCommand } from './create-client.command';
 import { v4 as uuidv4 } from 'uuid';
 import * as crypto from 'crypto';
 import * as selfsigned from 'selfsigned';
-import { ClientEntity } from '../entities';
+import { Oauth2ClientEntity } from '../entities';
 import { ClientCreatedEvent } from '../events/client-created.event';
 import { ClientRepositoryInterface } from '../interfaces/client-repository.interface';
 
@@ -23,7 +23,7 @@ export class CreateClientHandler
    * @param command
    */
   async execute(command: CreateClientCommand) {
-    const client = new ClientEntity();
+    const client = new Oauth2ClientEntity();
     client.name = command.name;
     client.clientId = command.clientId || uuidv4();
     if (!command.noSecret) {

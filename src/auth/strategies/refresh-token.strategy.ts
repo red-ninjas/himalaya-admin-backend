@@ -2,15 +2,15 @@ import { Inject, UnauthorizedException } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { CreateAccessTokenCommand } from '../commands/create-access-token.command';
 import { Oauth2GrantStrategy } from '../decorators/oauth2-grant-strategy.decorator';
-import { ClientEntity } from '../entities/client.entity';
-import { AccessTokenEntity } from '../entities/accoss-token.entity';
+import { Oauth2ClientEntity } from '../entities/oauth2-client.entity';
+import { Oauth2AccessTokenEntity } from '../entities/oauth2-accoss-token.entity';
 import {
   Oauth2GrantStrategyInterface,
   ClientRepositoryInterface,
   AccessTokenRepositoryInterface,
 } from '../interfaces';
 import { OAuth2Request } from '../requests/oauth2-request.dto';
-import { OAuth2Response } from '../resources/oauth2-response.dto';
+import { OAuth2Response } from '../responses/oauth2-response.dto';
 
 @Oauth2GrantStrategy('refresh_token')
 export class RefreshTokenStrategy implements Oauth2GrantStrategyInterface {
@@ -31,7 +31,7 @@ export class RefreshTokenStrategy implements Oauth2GrantStrategyInterface {
 
   async validate(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise<boolean> {
     if (
       (client.clientSecret && client.clientSecret !== request.clientSecret) ||
@@ -46,7 +46,7 @@ export class RefreshTokenStrategy implements Oauth2GrantStrategyInterface {
 
   async getOauth2Response(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise<OAuth2Response> {
     const expiredToken = await this.accessTokenRepository.findByRefreshToken(
       request.refreshToken,
@@ -64,7 +64,7 @@ export class RefreshTokenStrategy implements Oauth2GrantStrategyInterface {
     const exp =
       (Date.now() + expiredToken.client.accessTokenLifetime * 1000) / 1000;
     const iat = Date.now() / 1000;
-    const accessToken: AccessTokenEntity = await this.commandBus.execute(
+    const accessToken: Oauth2AccessTokenEntity = await this.commandBus.execute(
       new CreateAccessTokenCommand(
         expiredToken.client.id,
         expiredToken.scope,

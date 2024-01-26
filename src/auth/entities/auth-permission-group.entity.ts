@@ -1,8 +1,8 @@
 import { BaseEntity, Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
-import { PermissionEntity } from './auth-permission.entity';
+import { AuthPermissionEntity } from './auth-permission.entity';
 
-@Entity('schema_auth_permission_groups')
-export class PermissionGroupEntity extends BaseEntity {
+@Entity('system_permission_groups')
+export class AuthPermissionGroupEntity extends BaseEntity {
   @PrimaryColumn('varchar', {
     length: 120,
   })
@@ -13,6 +13,6 @@ export class PermissionGroupEntity extends BaseEntity {
   })
   displayTitle: string;
 
-  @OneToMany(() => PermissionEntity, role => role.slug)
-  permissions?: Array<PermissionEntity>;
+  @OneToMany(() => AuthPermissionEntity, role => role.group)
+  permissions?: Array<AuthPermissionEntity>;
 }

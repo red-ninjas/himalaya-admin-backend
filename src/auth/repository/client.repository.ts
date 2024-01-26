@@ -1,18 +1,18 @@
 import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ClientEntity } from '../entities/client.entity';
+import { Oauth2ClientEntity } from '../entities/oauth2-client.entity';
 import { ClientNotFoundException } from '../exceptions/client-not-found.exception';
 import { ClientRepositoryInterface } from '../interfaces/client-repository.interface';
 
 @Injectable()
 export class ClientRepository implements ClientRepositoryInterface {
   constructor(
-    @InjectRepository(ClientEntity)
-    private readonly repository: Repository<ClientEntity>,
+    @InjectRepository(Oauth2ClientEntity)
+    private readonly repository: Repository<Oauth2ClientEntity>,
   ) {}
 
-  async find(id: string): Promise<ClientEntity> {
+  async find(id: string): Promise<Oauth2ClientEntity> {
     const client = await this.repository.findOneBy({ id });
 
     if (!client) {
@@ -22,7 +22,7 @@ export class ClientRepository implements ClientRepositoryInterface {
     return client;
   }
 
-  async findByClientId(clientId: string): Promise<ClientEntity> {
+  async findByClientId(clientId: string): Promise<Oauth2ClientEntity> {
     const client = await this.repository.findOne({
       where: {
         clientId: clientId,
@@ -36,7 +36,7 @@ export class ClientRepository implements ClientRepositoryInterface {
     return client;
   }
 
-  async findByName(name: string): Promise<ClientEntity> {
+  async findByName(name: string): Promise<Oauth2ClientEntity> {
     const client = await this.repository.findOne({
       where: {
         name: name,
@@ -50,11 +50,11 @@ export class ClientRepository implements ClientRepositoryInterface {
     return client;
   }
 
-  async create(client: ClientEntity): Promise<ClientEntity> {
+  async create(client: Oauth2ClientEntity): Promise<Oauth2ClientEntity> {
     return await this.repository.save(client);
   }
 
-  async delete(client: ClientEntity): Promise<ClientEntity> {
+  async delete(client: Oauth2ClientEntity): Promise<Oauth2ClientEntity> {
     client.deletedAt = new Date();
 
     return await this.repository.save(client);

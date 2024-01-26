@@ -1,4 +1,4 @@
-import { AccessTokenEntity } from '../entities/accoss-token.entity';
+import { Oauth2AccessTokenEntity } from '../entities/oauth2-accoss-token.entity';
 
 /** define payload types */
 export enum Oauth2PayloadType {
@@ -15,7 +15,7 @@ export interface Oauth2PayloadInterface {
   readonly type: Oauth2PayloadType;
 
   // This is the access token which is currently connected within the application
-  readonly accessToken: AccessTokenEntity;
+  readonly accessToken: Oauth2AccessTokenEntity;
 
   // The ID is common to all
   readonly id: string;

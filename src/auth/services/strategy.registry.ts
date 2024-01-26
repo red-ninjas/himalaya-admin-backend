@@ -2,9 +2,9 @@ import { HttpException, Injectable, Type } from '@nestjs/common';
 import { ModuleRef } from '@nestjs/core';
 import { OAUTH2_STRATEGY_METADATA } from './strategy.explorer';
 import { Oauth2GrantStrategyInterface } from '../interfaces/oauth2-grant-strategy.interface';
-import { ClientEntity } from '../entities/client.entity';
+import { Oauth2ClientEntity } from '../entities/oauth2-client.entity';
 import { OAuth2Request } from '../requests/oauth2-request.dto';
-import { OAuth2Response } from '../resources/oauth2-response.dto';
+import { OAuth2Response } from '../responses/oauth2-response.dto';
 
 export type Oauth2GrantStrategyType = Type<Oauth2GrantStrategyInterface>;
 
@@ -52,7 +52,7 @@ export class Oauth2GrantStrategyRegistry {
    */
   async validate(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise<boolean> {
     if (!(request.grantType in this.registry)) {
       throw new HttpException(
@@ -72,7 +72,7 @@ export class Oauth2GrantStrategyRegistry {
    */
   async getOauth2Response(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise<OAuth2Response> {
     if (!(request.grantType in this.registry)) {
       throw new HttpException(

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -264,7 +264,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getOauth2Response(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/ClientEntity.html" target="_self">ClientEntity</a>)</code>
+                    <code>getOauth2Response(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/Oauth2ClientEntity.html" target="_self">Oauth2ClientEntity</a>)</code>
                 </td>
             </tr>
 
@@ -309,7 +309,7 @@
                                         <tr>
                                                 <td>client</td>
                                             <td>
-                                                            <code><a href="../classes/ClientEntity.html" target="_self" >ClientEntity</a></code>
+                                                            <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Oauth2ClientEntity</a></code>
                                             </td>
 
                                             <td>
@@ -560,7 +560,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validate(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/ClientEntity.html" target="_self">ClientEntity</a>)</code>
+                    <code>validate(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/Oauth2ClientEntity.html" target="_self">Oauth2ClientEntity</a>)</code>
                 </td>
             </tr>
 
@@ -605,7 +605,7 @@
                                         <tr>
                                                 <td>client</td>
                                             <td>
-                                                            <code><a href="../classes/ClientEntity.html" target="_self" >ClientEntity</a></code>
+                                                            <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Oauth2ClientEntity</a></code>
                                             </td>
 
                                             <td>
@@ -682,9 +682,9 @@
 import { ModuleRef } from &#x27;@nestjs/core&#x27;;
 import { OAUTH2_STRATEGY_METADATA } from &#x27;./strategy.explorer&#x27;;
 import { Oauth2GrantStrategyInterface } from &#x27;../interfaces/oauth2-grant-strategy.interface&#x27;;
-import { ClientEntity } from &#x27;../entities/client.entity&#x27;;
+import { Oauth2ClientEntity } from &#x27;../entities/oauth2-client.entity&#x27;;
 import { OAuth2Request } from &#x27;../requests/oauth2-request.dto&#x27;;
-import { OAuth2Response } from &#x27;../resources/oauth2-response.dto&#x27;;
+import { OAuth2Response } from &#x27;../responses/oauth2-response.dto&#x27;;
 
 export type Oauth2GrantStrategyType &#x3D; Type&lt;Oauth2GrantStrategyInterface&gt;;
 
@@ -732,7 +732,7 @@ export class Oauth2GrantStrategyRegistry {
    */
   async validate(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise&lt;boolean&gt; {
     if (!(request.grantType in this.registry)) {
       throw new HttpException(
@@ -752,7 +752,7 @@ export class Oauth2GrantStrategyRegistry {
    */
   async getOauth2Response(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise&lt;OAuth2Response&gt; {
     if (!(request.grantType in this.registry)) {
       throw new HttpException(

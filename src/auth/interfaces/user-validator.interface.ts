@@ -1,4 +1,5 @@
-import { UserInterface } from './user.interface';
+import { DataSource } from 'typeorm';
+import { UserClass } from './user.interface';
 
 /**
  * Validates that the usernanme exists and has the given password
@@ -7,11 +8,15 @@ export interface UserValidatorInterface {
   /**
    * Implement this method to validate the user existence
    *
-   * @param username
+   * @param email
    * @param password
    *
-   * @return UserInterface
+   * @return UserClass
    * @throws InvalidUserException
    */
-  validate(username, password): Promise<UserInterface>;
+  validate(
+    datasource: DataSource,
+    email: string,
+    password: string,
+  ): Promise<UserClass>;
 }

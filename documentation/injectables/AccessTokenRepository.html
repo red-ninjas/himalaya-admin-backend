@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -180,7 +180,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(repository: <a href="../entitys/AccessTokenEntity.html" target="_self">Repository&lt;AccessTokenEntity&gt;</a>)</code>
+<code>constructor(repository: <a href="../entitys/Oauth2AccessTokenEntity.html" target="_self">Repository&lt;Oauth2AccessTokenEntity&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -206,7 +206,7 @@
                                                         <td>repository</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../entitys/AccessTokenEntity.html" target="_self" >Repository&lt;AccessTokenEntity&gt;</a></code>
+                                                                        <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Repository&lt;Oauth2AccessTokenEntity&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -243,76 +243,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(accessToken: <a href="../entitys/AccessTokenEntity.html" target="_self">AccessTokenEntity</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="46"
-                                    class="link-to-prism">src/auth/repository/access-token.repository.ts:46</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>accessToken</td>
-                                            <td>
-                                                            <code><a href="../entitys/AccessTokenEntity.html" target="_self" >AccessTokenEntity</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../entitys/AccessTokenEntity.html" target="_self" >Promise&lt;AccessTokenEntity&gt;</a></code>
-
-                        </div>
-                            <div class="io-description">
-                                
-                            </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                            <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(accessToken: <a href="../entitys/AccessTokenEntity.html" target="_self">AccessTokenEntity</a>)</code>
+                    <code>create(accessToken: <a href="../entitys/Oauth2AccessTokenEntity.html" target="_self">Oauth2AccessTokenEntity</a>)</code>
                 </td>
             </tr>
 
@@ -343,7 +274,76 @@
                                         <tr>
                                                 <td>accessToken</td>
                                             <td>
-                                                            <code><a href="../entitys/AccessTokenEntity.html" target="_self" >AccessTokenEntity</a></code>
+                                                            <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Oauth2AccessTokenEntity</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Promise&lt;Oauth2AccessTokenEntity&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(accessToken: <a href="../entitys/Oauth2AccessTokenEntity.html" target="_self">Oauth2AccessTokenEntity</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/auth/repository/access-token.repository.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>accessToken</td>
+                                            <td>
+                                                            <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Oauth2AccessTokenEntity</a></code>
                                             </td>
 
                                             <td>
@@ -388,8 +388,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="54"
-                                    class="link-to-prism">src/auth/repository/access-token.repository.ts:54</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/auth/repository/access-token.repository.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -494,7 +494,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../entitys/AccessTokenEntity.html" target="_self" >Promise&lt;AccessTokenEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Promise&lt;Oauth2AccessTokenEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -526,8 +526,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/auth/repository/access-token.repository.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/auth/repository/access-token.repository.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -563,7 +563,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../entitys/AccessTokenEntity.html" target="_self" >Promise&lt;AccessTokenEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Promise&lt;Oauth2AccessTokenEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -583,18 +583,20 @@
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
 
 import { DeleteResult, Repository } from &#x27;typeorm&#x27;;
-import { AccessTokenEntity } from &#x27;../entities/accoss-token.entity&#x27;;
+import { Oauth2AccessTokenEntity } from &#x27;../entities/oauth2-accoss-token.entity&#x27;;
 import { AccessTokenNotFoundException } from &#x27;../exceptions/access-token-not-found.exception&#x27;;
 import { AccessTokenRepositoryInterface } from &#x27;../interfaces/access-token-repository.interface&#x27;;
 
 @Injectable()
 export class AccessTokenRepository implements AccessTokenRepositoryInterface {
   constructor(
-    @InjectRepository(AccessTokenEntity)
-    private readonly repository: Repository&lt;AccessTokenEntity&gt;,
+    @InjectRepository(Oauth2AccessTokenEntity)
+    private readonly repository: Repository&lt;Oauth2AccessTokenEntity&gt;,
   ) {}
 
-  async findByAccessToken(accessToken: string): Promise&lt;AccessTokenEntity&gt; {
+  async findByAccessToken(
+    accessToken: string,
+  ): Promise&lt;Oauth2AccessTokenEntity&gt; {
     const token &#x3D; await this.repository.findOne({
       where: {
         accessToken: accessToken,
@@ -609,7 +611,9 @@ export class AccessTokenRepository implements AccessTokenRepositoryInterface {
     return token;
   }
 
-  async findByRefreshToken(refreshToken: string): Promise&lt;AccessTokenEntity&gt; {
+  async findByRefreshToken(
+    refreshToken: string,
+  ): Promise&lt;Oauth2AccessTokenEntity&gt; {
     const token &#x3D; await this.repository.findOne({
       where: {
         refreshToken: refreshToken,
@@ -624,11 +628,13 @@ export class AccessTokenRepository implements AccessTokenRepositoryInterface {
     return token;
   }
 
-  async create(accessToken: AccessTokenEntity): Promise&lt;AccessTokenEntity&gt; {
+  async create(
+    accessToken: Oauth2AccessTokenEntity,
+  ): Promise&lt;Oauth2AccessTokenEntity&gt; {
     return await this.repository.save(accessToken);
   }
 
-  async delete(accessToken: AccessTokenEntity): Promise&lt;DeleteResult&gt; {
+  async delete(accessToken: Oauth2AccessTokenEntity): Promise&lt;DeleteResult&gt; {
     return await this.repository.delete(accessToken.id);
   }
 

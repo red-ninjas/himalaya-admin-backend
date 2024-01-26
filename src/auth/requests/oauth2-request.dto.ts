@@ -68,10 +68,10 @@ export class OAuth2Request {
 
   @ApiProperty({
     type: String,
-    description: 'The username only when grant_type is set to "refresh_token"',
+    description: 'The email only when grant_type is set to "refresh_token"',
   })
-  @Expose({ name: 'username' })
-  username?: string;
+  @Expose({ name: 'email' })
+  email?: string;
 
   @ApiProperty({
     type: String,

@@ -15,8 +15,9 @@ import {
 } from '@nestjs/core';
 import { AdminConfig } from './admin.config';
 import { AuthModule } from './auth';
-import { CONFIG_INJECT_KEY } from './query/constants';
-import { QueryModule } from './query/query.module';
+import { CONFIG_INJECT_KEY } from './constants';
+import { CrudModule } from './crud/crud.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({})
 @Global()
@@ -34,7 +35,12 @@ export class AdminModule implements OnModuleInit {
       module: AdminModule,
       imports: [
         AuthModule.forRoot(options.auth),
-        QueryModule.forRoot(options.query),
+        CrudModule.forRoot(options.query),
+        JwtModule.register({
+          global: true,
+          secret: options.auth.jwtSecret,
+          signOptions: { expiresIn: '30d' },
+        }),
       ],
       providers: [
         {
@@ -56,7 +62,7 @@ export class AdminModule implements OnModuleInit {
           inject: [Reflector],
         },
       ],
-      exports: [],
+      exports: [JwtModule],
     };
   }
 }

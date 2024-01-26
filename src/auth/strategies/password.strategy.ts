@@ -2,15 +2,17 @@ import { Inject } from '@nestjs/common';
 import { CommandBus } from '@nestjs/cqrs';
 import { CreateAccessTokenCommand } from '../commands/create-access-token.command';
 import { Oauth2GrantStrategy } from '../decorators/oauth2-grant-strategy.decorator';
-import { ClientEntity } from '../entities/client.entity';
-import { AccessTokenEntity } from '../entities/accoss-token.entity';
+import { Oauth2ClientEntity } from '../entities/oauth2-client.entity';
+import { Oauth2AccessTokenEntity } from '../entities/oauth2-accoss-token.entity';
 import {
   Oauth2GrantStrategyInterface,
   ClientRepositoryInterface,
   UserValidatorInterface,
 } from '../interfaces';
 import { OAuth2Request } from '../requests/oauth2-request.dto';
-import { OAuth2Response } from '../resources/oauth2-response.dto';
+import { OAuth2Response } from '../responses/oauth2-response.dto';
+import { DataSource } from 'typeorm';
+import { InjectDataSource } from '@nestjs/typeorm';
 
 @Oauth2GrantStrategy('password')
 export class PasswordStrategy implements Oauth2GrantStrategyInterface {
@@ -27,11 +29,13 @@ export class PasswordStrategy implements Oauth2GrantStrategyInterface {
     @Inject('UserValidatorInterface')
     private readonly userValidator: UserValidatorInterface,
     private readonly commandBus: CommandBus,
+    @InjectDataSource()
+    private readonly dataSource: DataSource,
   ) {}
 
   async validate(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise<boolean> {
     if (
       (client.clientSecret && client.clientSecret !== request.clientSecret) ||
@@ -46,15 +50,16 @@ export class PasswordStrategy implements Oauth2GrantStrategyInterface {
 
   async getOauth2Response(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise<OAuth2Response> {
     const user = await this.userValidator.validate(
-      request.username,
+      this.dataSource,
+      request.email,
       request.password,
     );
     const requestScopes =
       typeof request.scopes === 'string' ? [request.scopes] : request.scopes;
-    const accessToken: AccessTokenEntity = await this.commandBus.execute(
+    const accessToken: Oauth2AccessTokenEntity = await this.commandBus.execute(
       new CreateAccessTokenCommand(
         client.id,
         JSON.stringify(requestScopes),

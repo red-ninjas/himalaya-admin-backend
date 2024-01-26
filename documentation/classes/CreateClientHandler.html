@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -323,7 +323,7 @@ import { CreateClientCommand } from &#x27;./create-client.command&#x27;;
 import { v4 as uuidv4 } from &#x27;uuid&#x27;;
 import * as crypto from &#x27;crypto&#x27;;
 import * as selfsigned from &#x27;selfsigned&#x27;;
-import { ClientEntity } from &#x27;../entities&#x27;;
+import { Oauth2ClientEntity } from &#x27;../entities&#x27;;
 import { ClientCreatedEvent } from &#x27;../events/client-created.event&#x27;;
 import { ClientRepositoryInterface } from &#x27;../interfaces/client-repository.interface&#x27;;
 
@@ -342,7 +342,7 @@ export class CreateClientHandler
    * @param command
    */
   async execute(command: CreateClientCommand) {
-    const client &#x3D; new ClientEntity();
+    const client &#x3D; new Oauth2ClientEntity();
     client.name &#x3D; command.name;
     client.clientId &#x3D; command.clientId || uuidv4();
     if (!command.noSecret) {

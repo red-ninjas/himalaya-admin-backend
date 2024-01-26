@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -185,15 +185,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>load(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>load(dataSource: DataSource, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="12"
-                                    class="link-to-prism">src/auth/interfaces/user-loader.interface.ts:12</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="13"
+                                    class="link-to-prism">src/auth/interfaces/user-loader.interface.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -216,6 +216,18 @@
                                     </thead>
                                     <tbody>
                                         <tr>
+                                                <td>dataSource</td>
+                                            <td>
+                                                        <code>DataSource</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
                                                 <td>userId</td>
                                             <td>
                                                             <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -231,7 +243,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../interfaces/UserInterface.html" target="_self" >Promise&lt;UserInterface&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../classes/UserClass.html" target="_self" >Promise&lt;UserClass&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -247,7 +259,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UserInterface } from &#x27;./user.interface&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DataSource } from &#x27;typeorm&#x27;;
+import { UserClass } from &#x27;./user.interface&#x27;;
 
 /**
  * This is the main interface you have to implement in order to have the appropriate
@@ -258,7 +271,7 @@ export interface UserLoaderInterface {
    *
    * @param userId
    */
-  load(userId: string): Promise&lt;UserInterface&gt;;
+  load(dataSource: DataSource, userId: string): Promise&lt;UserClass&gt;;
 }
 </code></pre>
     </div>

@@ -9,7 +9,7 @@ export * from './requests';
 export * from './controllers';
 export * from './types';
 export * from './events';
-export * from './resources';
+export * from './responses';
 export * from './commands';
 export * from './auth.module';
 export * from './auth.constants';

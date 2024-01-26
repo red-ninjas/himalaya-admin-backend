@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -180,7 +180,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(repository: <a href="../classes/ClientEntity.html" target="_self">Repository&lt;ClientEntity&gt;</a>)</code>
+<code>constructor(repository: <a href="../classes/Oauth2ClientEntity.html" target="_self">Repository&lt;Oauth2ClientEntity&gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -206,7 +206,7 @@
                                                         <td>repository</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/ClientEntity.html" target="_self" >Repository&lt;ClientEntity&gt;</a></code>
+                                                                        <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Repository&lt;Oauth2ClientEntity&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -243,7 +243,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(client: <a href="../classes/ClientEntity.html" target="_self">ClientEntity</a>)</code>
+                    <code>create(client: <a href="../classes/Oauth2ClientEntity.html" target="_self">Oauth2ClientEntity</a>)</code>
                 </td>
             </tr>
 
@@ -274,7 +274,7 @@
                                         <tr>
                                                 <td>client</td>
                                             <td>
-                                                            <code><a href="../classes/ClientEntity.html" target="_self" >ClientEntity</a></code>
+                                                            <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Oauth2ClientEntity</a></code>
                                             </td>
 
                                             <td>
@@ -287,7 +287,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../classes/ClientEntity.html" target="_self" >Promise&lt;ClientEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Promise&lt;Oauth2ClientEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -312,7 +312,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(client: <a href="../classes/ClientEntity.html" target="_self">ClientEntity</a>)</code>
+                    <code>delete(client: <a href="../classes/Oauth2ClientEntity.html" target="_self">Oauth2ClientEntity</a>)</code>
                 </td>
             </tr>
 
@@ -343,7 +343,7 @@
                                         <tr>
                                                 <td>client</td>
                                             <td>
-                                                            <code><a href="../classes/ClientEntity.html" target="_self" >ClientEntity</a></code>
+                                                            <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Oauth2ClientEntity</a></code>
                                             </td>
 
                                             <td>
@@ -356,7 +356,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../classes/ClientEntity.html" target="_self" >Promise&lt;ClientEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Promise&lt;Oauth2ClientEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -425,7 +425,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../classes/ClientEntity.html" target="_self" >Promise&lt;ClientEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Promise&lt;Oauth2ClientEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -494,7 +494,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../classes/ClientEntity.html" target="_self" >Promise&lt;ClientEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Promise&lt;Oauth2ClientEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -563,7 +563,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../classes/ClientEntity.html" target="_self" >Promise&lt;ClientEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Promise&lt;Oauth2ClientEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -582,18 +582,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Repository } from &#x27;typeorm&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
-import { ClientEntity } from &#x27;../entities/client.entity&#x27;;
+import { Oauth2ClientEntity } from &#x27;../entities/oauth2-client.entity&#x27;;
 import { ClientNotFoundException } from &#x27;../exceptions/client-not-found.exception&#x27;;
 import { ClientRepositoryInterface } from &#x27;../interfaces/client-repository.interface&#x27;;
 
 @Injectable()
 export class ClientRepository implements ClientRepositoryInterface {
   constructor(
-    @InjectRepository(ClientEntity)
-    private readonly repository: Repository&lt;ClientEntity&gt;,
+    @InjectRepository(Oauth2ClientEntity)
+    private readonly repository: Repository&lt;Oauth2ClientEntity&gt;,
   ) {}
 
-  async find(id: string): Promise&lt;ClientEntity&gt; {
+  async find(id: string): Promise&lt;Oauth2ClientEntity&gt; {
     const client &#x3D; await this.repository.findOneBy({ id });
 
     if (!client) {
@@ -603,7 +603,7 @@ export class ClientRepository implements ClientRepositoryInterface {
     return client;
   }
 
-  async findByClientId(clientId: string): Promise&lt;ClientEntity&gt; {
+  async findByClientId(clientId: string): Promise&lt;Oauth2ClientEntity&gt; {
     const client &#x3D; await this.repository.findOne({
       where: {
         clientId: clientId,
@@ -617,7 +617,7 @@ export class ClientRepository implements ClientRepositoryInterface {
     return client;
   }
 
-  async findByName(name: string): Promise&lt;ClientEntity&gt; {
+  async findByName(name: string): Promise&lt;Oauth2ClientEntity&gt; {
     const client &#x3D; await this.repository.findOne({
       where: {
         name: name,
@@ -631,11 +631,11 @@ export class ClientRepository implements ClientRepositoryInterface {
     return client;
   }
 
-  async create(client: ClientEntity): Promise&lt;ClientEntity&gt; {
+  async create(client: Oauth2ClientEntity): Promise&lt;Oauth2ClientEntity&gt; {
     return await this.repository.save(client);
   }
 
-  async delete(client: ClientEntity): Promise&lt;ClientEntity&gt; {
+  async delete(client: Oauth2ClientEntity): Promise&lt;Oauth2ClientEntity&gt; {
     client.deletedAt &#x3D; new Date();
 
     return await this.repository.save(client);

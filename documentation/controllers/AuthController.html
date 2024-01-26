@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -144,8 +144,40 @@
                             <li>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Async</span>
-                                <a href="#token" >token</a>
+                                <a href="#login" >login</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#logoutAll" >logoutAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#validate" >validate</a>
                             </li>
                         </ul>
                     </td>
@@ -168,20 +200,22 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="token"></a>
+                    <a name="login"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
                             <span class="modifier">Async</span>
-                        <span ><b>token</b></span>
-                        <a href="#token"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>login</b></span>
+                        <a href="#login"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>token(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>)</code>
+                    <code>login(credentials: <a href="../classes/SignInDto.html" target="_self">SignInDto</a>)</code>
                 </td>
             </tr>
 
@@ -189,14 +223,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Version(&#x27;1&#x27;)<br />@Post(&#x27;token&#x27;)<br /></code>
+                    <code>@Post(&#x27;login&#x27;)<br />@Version(&#x27;1&#x27;)<br />@ApiResponse({status: 401, description: &#x27;Wrong credentials.&#x27;})<br />@ApiResponse({status: 201, type: AuthLoginTokenResponse})<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/auth/controllers/auth.controller.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/auth/controllers/auth.controller.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -217,9 +251,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>request</td>
+                                                <td>credentials</td>
                                             <td>
-                                                            <code><a href="../classes/OAuth2Request.html" target="_self" >OAuth2Request</a></code>
+                                                            <code><a href="../classes/SignInDto.html" target="_self" >SignInDto</a></code>
                                             </td>
 
                                             <td>
@@ -232,7 +266,253 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../classes/OAuth2Response.html" target="_self" >Promise&lt;OAuth2Response&gt;</a></code>
+                            <b>Returns : </b>    <code>Promise&lt;AuthLoginTokenResponse&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>logout(req: Request)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@UseGuards(JwtTokenGuard)<br />@ApiBearerAuth()<br />@ApiResponse({status: 201, description: &#x27;The logout was successfully.&#x27;})<br />@ApiResponse({status: 403, description: &#x27;Unauthorized or invalid token.&#x27;})<br />@Get(&#x27;logout&#x27;)<br />@Version(&#x27;1&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">src/auth/controllers/auth.controller.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>req</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logoutAll"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>logoutAll</b></span>
+                        <a href="#logoutAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>logoutAll(req: Request)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@UseGuards(JwtTokenGuard)<br />@ApiBearerAuth()<br />@ApiResponse({status: 201, description: &#x27;The logout from all devices was successfully.&#x27;})<br />@ApiResponse({status: 403, description: &#x27;Unauthorized or invalid token.&#x27;})<br />@Get(&#x27;logoutAll&#x27;)<br />@Version(&#x27;1&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/auth/controllers/auth.controller.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>req</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validate"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>validate</b></span>
+                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validate(req: Request)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@UseGuards(JwtTokenGuard)<br />@ApiBearerAuth()<br />@ApiExtraModels(UserClass)<br />@ApiResponse({type: UserClass})<br />@Get(&#x27;me&#x27;)<br />@Version(&#x27;1&#x27;)<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">src/auth/controllers/auth.controller.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>req</td>
+                                            <td>
+                                                        <code>Request</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/UserClass.html" target="_self" >Promise&lt;UserClass&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -247,26 +527,50 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Body,
   ClassSerializerInterceptor,
   Controller,
-  ForbiddenException,
+  Get,
   Inject,
+  InternalServerErrorException,
   Post,
-  Body,
+  Req,
+  UseGuards,
   UseInterceptors,
   Version,
 } from &#x27;@nestjs/common&#x27;;
-import { OAuth2Request } from &#x27;../requests/oauth2-request.dto&#x27;;
-import { OAuth2Response } from &#x27;../resources/oauth2-response.dto&#x27;;
-import { Oauth2GrantStrategyRegistry } from &#x27;../services/strategy.registry&#x27;;
-import { ClientRepositoryInterface } from &#x27;../interfaces/client-repository.interface&#x27;;
-import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { JwtService } from &#x27;@nestjs/jwt&#x27;;
+import {
+  ApiBearerAuth,
+  ApiExtraModels,
+  ApiResponse,
+  ApiTags,
+} from &#x27;@nestjs/swagger&#x27;;
+import { InjectDataSource, InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
+import ms from &#x27;ms&#x27;;
+import { DataSource, Repository } from &#x27;typeorm&#x27;;
+import { v4 as uuidv4 } from &#x27;uuid&#x27;;
+import { OAUTH2_SERVER_OPTIONS } from &#x27;../auth.constants&#x27;;
+import { AuthJwtTokenEntity } from &#x27;../entities/auth-jwt-token.entity&#x27;;
+import { InvalidUserException } from &#x27;../exceptions/invalid-user.exception&#x27;;
+import { JwtTokenGuard } from &#x27;../../jwt/guards/jwt-token.guard&#x27;;
+import {
+  UserClass,
+  UserLoaderInterface,
+  UserValidatorInterface,
+} from &#x27;../interfaces&#x27;;
+import { SignInDto } from &#x27;../requests/sign-request.dto&#x27;;
+import { AuthLoginTokenResponse } from &#x27;../responses/auth-login-token.response&#x27;;
+import { OAuth2Options } from &#x27;../types&#x27;;
+import { TokenResponse } from &#x27;../responses/token-response.dto&#x27;;
+import { IsNumber } from &#x27;class-validator&#x27;;
+import { isEmpty, isString } from &#x27;lodash&#x27;;
 
 @Controller({
-  path: &#x27;_auth&#x27;,
+  path: &#x27;authentication&#x27;,
   version: [&#x27;1&#x27;],
 })
-@ApiTags(&#x27;auth&#x27;)
+@ApiTags(&#x27;Authentication&#x27;)
 @UseInterceptors(ClassSerializerInterceptor)
 export class AuthController {
   /**
@@ -276,22 +580,128 @@ export class AuthController {
    * @param strategyRegistry
    */
   constructor(
-    @Inject(&#x27;ClientRepositoryInterface&#x27;)
-    private readonly clientRepository: ClientRepositoryInterface,
-    private readonly strategyRegistry: Oauth2GrantStrategyRegistry,
+    private readonly jwtService: JwtService,
+    @Inject(&#x27;UserValidatorInterface&#x27;)
+    private readonly userValidator: UserValidatorInterface,
+    @Inject(&#x27;UserLoaderInterface&#x27;)
+    private readonly userLoader: UserLoaderInterface,
+    @Inject(OAUTH2_SERVER_OPTIONS)
+    private readonly options: OAuth2Options,
+    @InjectDataSource()
+    private readonly dataSource: DataSource,
+    @InjectRepository(AuthJwtTokenEntity)
+    private readonly jwtRepo: Repository&lt;AuthJwtTokenEntity&gt;,
   ) {}
 
+  @Post(&#x27;login&#x27;)
   @Version(&#x27;1&#x27;)
-  @Post(&#x27;token&#x27;)
-  async token(@Body() request: OAuth2Request): Promise&lt;OAuth2Response&gt; {
-    const client &#x3D; await this.clientRepository.findByClientId(request.clientId);
-    if (!(await this.strategyRegistry.validate(request, client))) {
-      throw new ForbiddenException(
-        &#x27;You are not allowed to access the given resource&#x27;,
-      );
+  @ApiResponse({ status: 401, description: &#x27;Wrong credentials.&#x27; })
+  @ApiResponse({ status: 201, type: AuthLoginTokenResponse })
+  async login(@Body() credentials: SignInDto): Promise&lt;AuthLoginTokenResponse&gt; {
+    const user &#x3D; await this.userValidator.validate(
+      this.dataSource,
+      credentials.email,
+      credentials.password,
+    );
+
+    if (!user) {
+      throw InvalidUserException.wrongCredentials();
     }
 
-    return await this.strategyRegistry.getOauth2Response(request, client);
+    const tokenExpires: number &#x3D; isEmpty(this.options.jwtExpires)
+      ? ms(&#x27;1d&#x27;)
+      : isString(this.options.jwtExpires)
+      ? ms(this.options.jwtExpires)
+      : this.options.jwtExpires;
+
+    const tokenRefreshExpires: number &#x3D; isEmpty(this.options.jwtRefreshExpires)
+      ? ms(&#x27;7 days&#x27;)
+      : isString(this.options.jwtRefreshExpires)
+      ? ms(this.options.jwtRefreshExpires)
+      : this.options.jwtRefreshExpires;
+
+    const token &#x3D; await this.jwtService.signAsync(user.toJSON(), {
+      jwtid: uuidv4(),
+      subject: user.id,
+      expiresIn: tokenExpires,
+      secret: this.options.jwtSecret,
+    });
+
+    const refreshToken &#x3D; await this.jwtService.signAsync(user.toJSON(), {
+      jwtid: uuidv4(),
+      subject: user.id,
+      expiresIn: tokenRefreshExpires,
+      secret: this.options.jwtSecret,
+    });
+
+    const newJetToken &#x3D; this.jwtRepo.create();
+    newJetToken.identifier &#x3D; user.id;
+    newJetToken.accessToken &#x3D; token;
+    newJetToken.refreshToken &#x3D; refreshToken;
+    newJetToken.accessTokenExpiresAt &#x3D; new Date(Date.now() + tokenExpires);
+    newJetToken.refreshTokenExpiresAt &#x3D; new Date(
+      Date.now() + tokenRefreshExpires,
+    );
+    newJetToken.createdAt &#x3D; new Date();
+    newJetToken.save();
+
+    return new AuthLoginTokenResponse(
+      new TokenResponse(
+        token,
+        newJetToken.accessTokenExpiresAt,
+        tokenExpires,
+        refreshToken,
+        newJetToken.refreshTokenExpiresAt,
+        tokenRefreshExpires,
+      ),
+      user,
+    );
+  }
+
+  @UseGuards(JwtTokenGuard)
+  @ApiBearerAuth()
+  @ApiExtraModels(UserClass)
+  @ApiResponse({ type: UserClass })
+  @Get(&#x27;me&#x27;)
+  @Version(&#x27;1&#x27;)
+  async validate(@Req() req: Request): Promise&lt;UserClass&gt; {
+    try {
+      return await this.userLoader.load(this.dataSource, (req as any).user.id);
+    } catch (err) {
+      throw new InternalServerErrorException(err);
+    }
+  }
+
+  @UseGuards(JwtTokenGuard)
+  @ApiBearerAuth()
+  @ApiResponse({
+    status: 201,
+    description: &#x27;The logout was successfully.&#x27;,
+  })
+  @ApiResponse({ status: 403, description: &#x27;Unauthorized or invalid token.&#x27; })
+  @Get(&#x27;logout&#x27;)
+  @Version(&#x27;1&#x27;)
+  async logout(@Req() req: Request) {
+    await this.jwtRepo.update(
+      { accessToken: (req as any).userToken, identifier: (req as any).user.id },
+      { revokedAt: new Date() },
+    );
+  }
+
+  @UseGuards(JwtTokenGuard)
+  @ApiBearerAuth()
+  @ApiResponse({
+    status: 201,
+    description: &#x27;The logout from all devices was successfully.&#x27;,
+  })
+  @ApiResponse({ status: 403, description: &#x27;Unauthorized or invalid token.&#x27; })
+  @Get(&#x27;logoutAll&#x27;)
+  @Version(&#x27;1&#x27;)
+  async logoutAll(@Req() req: Request) {
+    await this.jwtRepo.update(
+      { identifier: (req as any).user.id },
+      { revokedAt: new Date() },
+    );
   }
 }
 </code></pre>

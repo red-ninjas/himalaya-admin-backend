@@ -1,25 +1,34 @@
-import { BaseEntity, Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
-import { PermissionEntity } from './auth-permission.entity';
-import { QueryEntity, ViewableColumn } from '../../query/decorators';
 import { ApiProperty } from '@nestjs/swagger';
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryColumn,
+} from 'typeorm';
+import { AuthPermissionEntity } from './auth-permission.entity';
+import { AuthRoleAssignmentEntity } from './auth-role-assignment.entity';
 
-@Entity('schema_auth_roles')
-@QueryEntity()
-export class RoleEntity extends BaseEntity {
-  @ViewableColumn()
+@Entity('system_roles')
+export class AuthRoleEntity extends BaseEntity {
   @ApiProperty()
   @PrimaryColumn('varchar', {
     length: 120,
   })
   slug: string;
 
-  @ViewableColumn()
   @ApiProperty()
   @Column('varchar', {
     length: 120,
   })
   displayTitle: string;
 
-  @OneToMany(() => PermissionEntity, permission => permission.slug)
-  permissions?: Array<PermissionEntity>;
+  @ManyToMany(() => AuthPermissionEntity)
+  @JoinTable({ name: 'system_roles_permissions' })
+  permissions: AuthPermissionEntity[];
+
+  @OneToMany(() => AuthRoleAssignmentEntity, users => users.id)
+  users: Array<AuthRoleAssignmentEntity>;
 }

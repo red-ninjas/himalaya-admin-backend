@@ -1,4 +1,4 @@
-import { AccessTokenEntity } from '../entities/accoss-token.entity';
+import { Oauth2AccessTokenEntity } from '../entities/oauth2-accoss-token.entity';
 
 /**
  * Main interface you have to implement if you want to deal with access tokens in your
@@ -12,7 +12,7 @@ export interface AccessTokenRepositoryInterface {
    *
    * @throws AccessTokenNotFoundException
    */
-  findByAccessToken(accessToken: string): Promise<AccessTokenEntity>;
+  findByAccessToken(accessToken: string): Promise<Oauth2AccessTokenEntity>;
 
   /**
    * Find by access token
@@ -21,12 +21,14 @@ export interface AccessTokenRepositoryInterface {
    *
    * @throws AccessTokenNotFoundException
    */
-  findByRefreshToken(refreshToken: string): Promise<AccessTokenEntity>;
+  findByRefreshToken(refreshToken: string): Promise<Oauth2AccessTokenEntity>;
 
   /**
    * Register a new access token into the storage
    *
    * @param accessToken
    */
-  create(accessToken: AccessTokenEntity): Promise<AccessTokenEntity>;
+  create(
+    accessToken: Oauth2AccessTokenEntity,
+  ): Promise<Oauth2AccessTokenEntity>;
 }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -269,7 +269,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getOauth2Response(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/ClientEntity.html" target="_self">ClientEntity</a>)</code>
+                    <code>getOauth2Response(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/Oauth2ClientEntity.html" target="_self">Oauth2ClientEntity</a>)</code>
                 </td>
             </tr>
 
@@ -312,7 +312,7 @@
                                         <tr>
                                                 <td>client</td>
                                             <td>
-                                                            <code><a href="../classes/ClientEntity.html" target="_self" >ClientEntity</a></code>
+                                                            <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Oauth2ClientEntity</a></code>
                                             </td>
 
                                             <td>
@@ -350,7 +350,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validate(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/ClientEntity.html" target="_self">ClientEntity</a>)</code>
+                    <code>validate(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/Oauth2ClientEntity.html" target="_self">Oauth2ClientEntity</a>)</code>
                 </td>
             </tr>
 
@@ -393,7 +393,7 @@
                                         <tr>
                                                 <td>client</td>
                                             <td>
-                                                            <code><a href="../classes/ClientEntity.html" target="_self" >ClientEntity</a></code>
+                                                            <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Oauth2ClientEntity</a></code>
                                             </td>
 
                                             <td>
@@ -430,15 +430,15 @@
 import { CommandBus } from &#x27;@nestjs/cqrs&#x27;;
 import { CreateAccessTokenCommand } from &#x27;../commands/create-access-token.command&#x27;;
 import { Oauth2GrantStrategy } from &#x27;../decorators/oauth2-grant-strategy.decorator&#x27;;
-import { ClientEntity } from &#x27;../entities/client.entity&#x27;;
-import { AccessTokenEntity } from &#x27;../entities/accoss-token.entity&#x27;;
+import { Oauth2ClientEntity } from &#x27;../entities/oauth2-client.entity&#x27;;
+import { Oauth2AccessTokenEntity } from &#x27;../entities/oauth2-accoss-token.entity&#x27;;
 import {
   Oauth2GrantStrategyInterface,
   ClientRepositoryInterface,
   AccessTokenRepositoryInterface,
 } from &#x27;../interfaces&#x27;;
 import { OAuth2Request } from &#x27;../requests/oauth2-request.dto&#x27;;
-import { OAuth2Response } from &#x27;../resources/oauth2-response.dto&#x27;;
+import { OAuth2Response } from &#x27;../responses/oauth2-response.dto&#x27;;
 
 @Oauth2GrantStrategy(&#x27;refresh_token&#x27;)
 export class RefreshTokenStrategy implements Oauth2GrantStrategyInterface {
@@ -459,7 +459,7 @@ export class RefreshTokenStrategy implements Oauth2GrantStrategyInterface {
 
   async validate(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise&lt;boolean&gt; {
     if (
       (client.clientSecret &amp;&amp; client.clientSecret !&#x3D;&#x3D; request.clientSecret) ||
@@ -474,7 +474,7 @@ export class RefreshTokenStrategy implements Oauth2GrantStrategyInterface {
 
   async getOauth2Response(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise&lt;OAuth2Response&gt; {
     const expiredToken &#x3D; await this.accessTokenRepository.findByRefreshToken(
       request.refreshToken,
@@ -492,7 +492,7 @@ export class RefreshTokenStrategy implements Oauth2GrantStrategyInterface {
     const exp &#x3D;
       (Date.now() + expiredToken.client.accessTokenLifetime * 1000) / 1000;
     const iat &#x3D; Date.now() / 1000;
-    const accessToken: AccessTokenEntity &#x3D; await this.commandBus.execute(
+    const accessToken: Oauth2AccessTokenEntity &#x3D; await this.commandBus.execute(
       new CreateAccessTokenCommand(
         expiredToken.client.id,
         expiredToken.scope,

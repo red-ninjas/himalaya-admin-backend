@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -119,16 +119,13 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#AccessTokenRequired" title="src/auth/decorators/access-token-decorator.ts" ><b>AccessTokenRequired</b>&nbsp;&nbsp;&nbsp;(src/.../access-token-decorator.ts)</a>
+                            <a href="#AuthAccessTokenRequired" title="src/auth/decorators/auth-access-token-required.decorator.ts" ><b>AuthAccessTokenRequired</b>&nbsp;&nbsp;&nbsp;(src/.../auth-access-token-required.decorator.ts)</a>
                         </li>
                         <li>
-                            <a href="#ADMIN_FIELD_DECORATOR_KEY" title="src/constants.ts" ><b>ADMIN_FIELD_DECORATOR_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
+                            <a href="#AuthPermission" title="src/auth/decorators/auth-permission.decorator.ts" ><b>AuthPermission</b>&nbsp;&nbsp;&nbsp;(src/.../auth-permission.decorator.ts)</a>
                         </li>
                         <li>
-                            <a href="#applyFilter" title="src/query/helpers/index.ts" ><b>applyFilter</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#applySort" title="src/query/helpers/index.ts" ><b>applySort</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                            <a href="#AuthWithPermission" title="src/auth/decorators/auth-with-permission.decorator.ts" ><b>AuthWithPermission</b>&nbsp;&nbsp;&nbsp;(src/.../auth-with-permission.decorator.ts)</a>
                         </li>
                         <li>
                             <a href="#CommandHandlers" title="src/auth/auth.module.ts" ><b>CommandHandlers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
@@ -137,25 +134,46 @@
                             <a href="#CONFIG_INJECT_KEY" title="src/constants.ts" ><b>CONFIG_INJECT_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../constants.ts)</a>
                         </li>
                         <li>
+                            <a href="#CrudEntity" title="src/crud/decorators/crud-entity.decorator.ts" ><b>CrudEntity</b>&nbsp;&nbsp;&nbsp;(src/.../crud-entity.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CrudEntityRequest" title="src/crud/decorators/crud-entity-request.decorator.ts" ><b>CrudEntityRequest</b>&nbsp;&nbsp;&nbsp;(src/.../crud-entity-request.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#crudPagination" title="src/crud/helpers/crud-pagination.ts" ><b>crudPagination</b>&nbsp;&nbsp;&nbsp;(src/.../crud-pagination.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CrudSearchRequest" title="src/crud/decorators/crud-search-request.decorator.ts" ><b>CrudSearchRequest</b>&nbsp;&nbsp;&nbsp;(src/.../crud-search-request.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CrudTransformResponse" title="src/crud/decorators/crud-transform-response.decorator.ts" ><b>CrudTransformResponse</b>&nbsp;&nbsp;&nbsp;(src/.../crud-transform-response.decorator.ts)</a>
+                        </li>
+                        <li>
                             <a href="#DEFAULT_ADMIN_ROLE_NAME" title="src/auth/constants/index.ts" ><b>DEFAULT_ADMIN_ROLE_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DEFAULT_SYSTEM_AUTH_PERMISSION_NAME" title="src/auth/constants/index.ts" ><b>DEFAULT_SYSTEM_AUTH_PERMISSION_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
                             <a href="#DEFAULT_SYSTEM_PERMISSION_GROUP" title="src/auth/constants/index.ts" ><b>DEFAULT_SYSTEM_PERMISSION_GROUP</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
-                            <a href="#DEFAULT_SYSTEM_ROLES_PERMISSION_NAME" title="src/auth/constants/index.ts" ><b>DEFAULT_SYSTEM_ROLES_PERMISSION_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                            <a href="#DEFAULT_SYSTEM_PERMISSION_NAME" title="src/auth/constants/index.ts" ><b>DEFAULT_SYSTEM_PERMISSION_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
                             <a href="#DEFAULT_USER_ROLE_NAME" title="src/auth/constants/index.ts" ><b>DEFAULT_USER_ROLE_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
                         </li>
                         <li>
-                            <a href="#EntityAccessor" title="src/query/decorators.ts" ><b>EntityAccessor</b>&nbsp;&nbsp;&nbsp;(src/.../decorators.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#EntityAccessorValidation" title="src/query/decorators/entity-accessor.decorator.ts" ><b>EntityAccessorValidation</b>&nbsp;&nbsp;&nbsp;(src/.../entity-accessor.decorator.ts)</a>
-                        </li>
-                        <li>
                             <a href="#EventHandlers" title="src/auth/auth.module.ts" ><b>EventHandlers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#generatePassword" title="src/auth/commands/create-user-handler.ts" ><b>generatePassword</b>&nbsp;&nbsp;&nbsp;(src/.../create-user-handler.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#log" title="src/auth/commands/create-system-permissions-handler.ts" ><b>log</b>&nbsp;&nbsp;&nbsp;(src/.../create-system-permissions-handler.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#log" title="src/auth/commands/create-user-handler.ts" ><b>log</b>&nbsp;&nbsp;&nbsp;(src/.../create-user-handler.ts)</a>
                         </li>
                         <li>
                             <a href="#OAUTH2_SERVER_OPTIONS" title="src/auth/auth.constants.ts" ><b>OAUTH2_SERVER_OPTIONS</b>&nbsp;&nbsp;&nbsp;(src/.../auth.constants.ts)</a>
@@ -170,10 +188,10 @@
                             <a href="#Oauth2Strategies" title="src/auth/auth.module.ts" ><b>Oauth2Strategies</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
                         </li>
                         <li>
-                            <a href="#Providers" title="src/auth/auth.module.ts" ><b>Providers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
+                            <a href="#OAuth2TokenRequired" title="src/auth/decorators/oauth2-token-required.decorator.ts" ><b>OAuth2TokenRequired</b>&nbsp;&nbsp;&nbsp;(src/.../oauth2-token-required.decorator.ts)</a>
                         </li>
                         <li>
-                            <a href="#QUERY_MODULE_CONFIG_KEY" title="src/query/constants/index.ts" ><b>QUERY_MODULE_CONFIG_KEY</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                            <a href="#Providers" title="src/auth/auth.module.ts" ><b>Providers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
                         </li>
                         <li>
                             <a href="#QueryHandlers" title="src/auth/auth.module.ts" ><b>QueryHandlers</b>&nbsp;&nbsp;&nbsp;(src/.../auth.module.ts)</a>
@@ -197,22 +215,22 @@
     </table>
 </section>
 
-    <h3>src/auth/decorators/access-token-decorator.ts</h3>
+    <h3>src/auth/decorators/auth-access-token-required.decorator.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="AccessTokenRequired"></a>
+                    <a name="AuthAccessTokenRequired"></a>
                     <span class="name">
-                        <span ><b>AccessTokenRequired</b></span>
-                        <a href="#AccessTokenRequired"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>AuthAccessTokenRequired</b></span>
+                        <a href="#AuthAccessTokenRequired"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>() &#x3D;&gt; UseGuards(AuthGuard(&#x27;access-token&#x27;))</code>
+                        <i>Default value : </i><code>() &#x3D;&gt; UseGuards(JwtTokenGuard)</code>
                     </td>
                 </tr>
 
@@ -220,54 +238,30 @@
         </tbody>
     </table>
 </section>
-    <h3>src/constants.ts</h3>
+    <h3>src/auth/decorators/auth-permission.decorator.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ADMIN_FIELD_DECORATOR_KEY"></a>
+                    <a name="AuthPermission"></a>
                     <span class="name">
-                        <span ><b>ADMIN_FIELD_DECORATOR_KEY</b></span>
-                        <a href="#ADMIN_FIELD_DECORATOR_KEY"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>AuthPermission</b></span>
+                        <a href="#AuthPermission"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;admin-field&#x27;</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="CONFIG_INJECT_KEY"></a>
-                    <span class="name">
-                        <span ><b>CONFIG_INJECT_KEY</b></span>
-                        <a href="#CONFIG_INJECT_KEY"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;AdminOptions&#x27;</code>
+                        <i>Default value : </i><code>(
+  permission: string &#x3D; DEFAULT_SYSTEM_PERMISSION_NAME,
+) &#x3D;&gt; {
+  return applyDecorators(
+    AuthWithPermission(permission),
+    AuthAccessTokenRequired(),
+    ApiBearerAuth(),
+  );
+}</code>
                     </td>
                 </tr>
 
@@ -275,85 +269,24 @@
         </tbody>
     </table>
 </section>
-    <h3>src/query/helpers/index.ts</h3>
+    <h3>src/auth/decorators/auth-with-permission.decorator.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="applyFilter"></a>
+                    <a name="AuthWithPermission"></a>
                     <span class="name">
-                        <span ><b>applyFilter</b></span>
-                        <a href="#applyFilter"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>AuthWithPermission</b></span>
+                        <a href="#AuthWithPermission"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(
-  fields: ResourceDictonary&lt;MetaDataResult&gt;,
-  field: FilterableRequest,
-  queryBuilder: SelectQueryBuilder&lt;any&gt;,
-) &#x3D;&gt; {
-  const foundField &#x3D; fields[field.field];
-
-  if (foundField &#x3D;&#x3D;&#x3D; undefined || foundField.isFilterable !&#x3D;&#x3D; true) {
-    throw new UnauthorizedException(
-      field.field + &#x27; is not accessable as filter field.&#x27;,
-    );
-  } else {
-    const filter &#x3D; {};
-
-    if (foundField.filterMatch &#x3D;&#x3D; undefined) {
-      foundField.filterMatch &#x3D; FilterMatch.STARTS_OR_ENDS;
-    }
-
-    if (foundField.filterMatch &#x3D;&#x3D; FilterMatch.STARTS_WITH) {
-      filter[field.field] &#x3D; ILike(&#x60;${field.term}%&#x60;);
-    } else if (foundField.filterMatch &#x3D;&#x3D; FilterMatch.EXACT) {
-      filter[field.field] &#x3D; &#x60;${field.term}&#x60;;
-    } else if (foundField.filterMatch &#x3D;&#x3D; FilterMatch.ENDS_WITH) {
-      filter[field.field] &#x3D; ILike(&#x60;%${field.term}&#x60;);
-    } else if (foundField.filterMatch &#x3D;&#x3D; FilterMatch.STARTS_OR_ENDS) {
-      filter[field.field] &#x3D; ILike(&#x60;%${field.term}%&#x60;);
-    }
-    queryBuilder.where(filter);
-  }
-}</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="applySort"></a>
-                    <span class="name">
-                        <span ><b>applySort</b></span>
-                        <a href="#applySort"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>(
-  fields: ResourceDictonary&lt;MetaDataResult&gt;,
-  field: SortableRequest,
-  queryBuilder: SelectQueryBuilder&lt;any&gt;,
-) &#x3D;&gt; {
-  const foundField &#x3D; fields[field.field];
-
-  if (foundField &#x3D;&#x3D;&#x3D; undefined || foundField.isSortable !&#x3D;&#x3D; true) {
-    throw new UnauthorizedException(
-      field.field + &#x27; is not accessable as order field.&#x27;,
-    );
-  } else {
-    queryBuilder.orderBy(field.field, field.order);
-  }
-}</code>
+                        <i>Default value : </i><code>Reflector.createDecorator&lt;
+  string | undefined
+&gt;()</code>
                     </td>
                 </tr>
 
@@ -382,7 +315,12 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[CreateClientHandler, CreateAccessTokenHandler]</code>
+                        <i>Default value : </i><code>[
+  CreateClientHandler,
+  CreateAccessTokenHandler,
+  CreateUserHandle,
+  CreateSystemPermissionHandler,
+]</code>
                     </td>
                 </tr>
 
@@ -611,6 +549,368 @@
         </tbody>
     </table>
 </section>
+    <h3>src/constants.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CONFIG_INJECT_KEY"></a>
+                    <span class="name">
+                        <span ><b>CONFIG_INJECT_KEY</b></span>
+                        <a href="#CONFIG_INJECT_KEY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;AdminOptions&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/crud/decorators/crud-entity.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CrudEntity"></a>
+                    <span class="name">
+                        <span ><b>CrudEntity</b></span>
+                        <a href="#CrudEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createParamDecorator(
+  (data: unknown, ctx: ExecutionContext) &#x3D;&gt; {
+    const request &#x3D; ctx.switchToHttp().getRequest() as Request;
+    return request.queryItem;
+  },
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/crud/decorators/crud-entity-request.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CrudEntityRequest"></a>
+                    <span class="name">
+                        <span ><b>CrudEntityRequest</b></span>
+                        <a href="#CrudEntityRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&lt;TypeOrmEntity extends Type&lt;BaseEntity&gt;&gt;(
+  entity: TypeOrmEntity,
+  primaryKey: string &#x3D; &#x27;id&#x27;,
+  urlKey?: string,
+) &#x3D;&gt; {
+  return applyDecorators(
+    SetMetadata(&#x27;queryPrimaryKey&#x27;, primaryKey),
+    SetMetadata(&#x27;queryRouteKey&#x27;, urlKey || primaryKey),
+    SetMetadata(&#x27;queryType&#x27;, entity),
+    Header(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;),
+    UseGuards(CrudEntityDetectionGuard),
+  );
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Detects the entity by parameter and store it into the request</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/crud/helpers/crud-pagination.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="crudPagination"></a>
+                    <span class="name">
+                        <span ><b>crudPagination</b></span>
+                        <a href="#crudPagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async &lt;
+  T extends BaseEntity,
+  TEntityType extends Type&lt;BaseEntity&gt; &#x3D; Type&lt;T&gt;
+&gt;(
+  entityType: TEntityType,
+  builderOrRepo: SelectQueryBuilder&lt;T&gt; | Repository&lt;T&gt;,
+  request: CrudPaginationRequest &#x3D; new CrudPaginationRequest(),
+): Promise&lt;CrudPaginationResource&lt;T&gt;&gt; &#x3D;&gt; {
+  const queryBuilder &#x3D;
+    builderOrRepo instanceof Repository
+      ? builderOrRepo.createQueryBuilder()
+      : builderOrRepo;
+
+  const columns &#x3D;
+    builderOrRepo instanceof Repository
+      ? builderOrRepo.metadata.columns
+      : builderOrRepo.connection.getMetadata(entityType).columns;
+
+  queryBuilder.skip(request.skip).take(request.take);
+  const itemCount &#x3D; await queryBuilder.getCount();
+
+  if (request.sort !&#x3D;&#x3D; undefined &amp;&amp; isArray(request.sort)) {
+    for (let item of request.sort) {
+      const findField &#x3D; _.find(columns, {
+        propertyName: item.field,
+      });
+
+      const fieldName &#x3D; findField.databaseName || findField.propertyName;
+      queryBuilder.orderBy(fieldName, item.order);
+    }
+  }
+
+  if (request.filter !&#x3D;&#x3D; undefined &amp;&amp; isArray(request.filter)) {
+    for (let item of request.filter) {
+      const findField &#x3D; _.find(columns, {
+        propertyName: item.field,
+      });
+
+      const fieldName &#x3D; findField.propertyName;
+
+      const filter &#x3D; {};
+      if (item.condition &#x3D;&#x3D; FilterMatch.ENDS_WITH) {
+        filter[fieldName] &#x3D; ILike(&#x60;%${item.term}&#x60;);
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.EQUALS) {
+        filter[fieldName] &#x3D; &#x60;${item.term}&#x60;;
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.GREATHER) {
+        filter[fieldName] &#x3D; MoreThan(item.term);
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.GREATHER_OR_EQUAL) {
+        filter[fieldName] &#x3D; MoreThanOrEqual(item.term);
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.IS_NULL) {
+        filter[fieldName] &#x3D; IsNull();
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.LIKE) {
+        filter[fieldName] &#x3D; ILike(&#x60;%${item.term}%&#x60;);
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.LOWER) {
+        filter[fieldName] &#x3D; LessThan(item.term);
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.LOWER_OR_EQUAL) {
+        filter[fieldName] &#x3D; LessThanOrEqual(item.term);
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.NOT) {
+        filter[fieldName] &#x3D; Not(item.term);
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.NOT_NULL) {
+        filter[fieldName] &#x3D; Not(IsNull());
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.STARTS_WITH) {
+        filter[fieldName] &#x3D; ILike(&#x60;${item.term}%&#x60;);
+      } else if (item.condition &#x3D;&#x3D; FilterMatch.UNEQUAL) {
+        filter[fieldName] &#x3D; Not(item.term);
+      }
+      queryBuilder.where(filter);
+    }
+  }
+
+  const { entities } &#x3D; await queryBuilder.getRawAndEntities&lt;T&gt;();
+  const pageMetaDto &#x3D; new CrudPaginationMeta({ itemCount, options: request });
+  const reponse &#x3D; new CrudPaginationResource&lt;T&gt;();
+
+  reponse.setData(entities);
+  reponse.setMetaData(pageMetaDto);
+
+  return reponse;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/crud/decorators/crud-search-request.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CrudSearchRequest"></a>
+                    <span class="name">
+                        <span ><b>CrudSearchRequest</b></span>
+                        <a href="#CrudSearchRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&lt;
+  EntityDTO extends Type&lt;BaseEntity&gt;,
+  ResponseDTO extends ClassLike&lt;any&gt; &#x3D; EntityDTO
+&gt;(
+  optionsOrEntity:
+    | ICrudSearchRequestOptions&lt;EntityDTO, ResponseDTO&gt;
+    | EntityDTO,
+) &#x3D;&gt; {
+  const options &#x3D;
+    typeof optionsOrEntity &#x3D;&#x3D;&#x3D; &#x27;function&#x27;
+      ? {
+          sortable: [],
+          filterable: [],
+          output: optionsOrEntity,
+          entity: optionsOrEntity,
+        }
+      : optionsOrEntity;
+
+  const responseType &#x3D; options.output ? options.output : options.entity;
+  const filterKeys &#x3D;
+    options[&#x27;filterable&#x27;] !&#x3D;&#x3D; undefined ? Object.keys(options.filterable) : [];
+  const sortableKeys &#x3D;
+    options[&#x27;sortable&#x27;] !&#x3D;&#x3D; undefined ? Object.keys(options.sortable) : [];
+
+  return applyDecorators(
+    UseInterceptors(ClassSerializerInterceptor),
+    UseInterceptors(
+      new CrudTransformPaginationInterceptor(options.entity, options.output),
+    ),
+    Header(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;),
+    SetMetadata(&#x27;filterableFields&#x27;, filterKeys),
+    UseGuards(CrudSearchRequestFiltersGuard),
+    SetMetadata(&#x27;sortableFields&#x27;, sortableKeys),
+    SetMetadata(&#x27;queryOutputType&#x27;, responseType),
+    UseGuards(CrudSearchRequestSortablesGuard),
+    ApiExtraModels(CrudPaginationResource, responseType),
+    ApiOkResponse({
+      schema: {
+        allOf: [
+          { $ref: getSchemaPath(CrudPaginationResource) },
+          {
+            properties: {
+              data: {
+                type: &#x27;array&#x27;,
+                items: { $ref: getSchemaPath(responseType) },
+              },
+            },
+          },
+        ],
+      },
+    }),
+    ApiExtraModels(CrudPaginationRequest),
+    ApiBody({
+      schema: {
+        allOf: [
+          { $ref: getSchemaPath(CrudPaginationRequest) },
+          {
+            properties: {
+              sort: {
+                type: &#x27;array&#x27;,
+                items: {
+                  allOf: [
+                    { $ref: getSchemaPath(CrudSortableRequest) },
+                    {
+                      properties: {
+                        field: {
+                          type: &#x27;enum&#x27;,
+                          enum: sortableKeys,
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+
+              filter: {
+                type: &#x27;array&#x27;,
+                items: {
+                  allOf: [
+                    { $ref: getSchemaPath(CrudFilterableRequest) },
+                    {
+                      properties: {
+                        field: {
+                          type: &#x27;enum&#x27;,
+                          enum: filterKeys,
+                        },
+                      },
+                    },
+                  ],
+                },
+              },
+            },
+          },
+        ],
+      },
+    }),
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/crud/decorators/crud-transform-response.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CrudTransformResponse"></a>
+                    <span class="name">
+                        <span ><b>CrudTransformResponse</b></span>
+                        <a href="#CrudTransformResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&lt;
+  EntityDTO extends Type&lt;BaseEntity&gt;,
+  ResponseDTO extends ClassLike&lt;any&gt; &#x3D; EntityDTO
+&gt;(
+  entity: EntityDTO,
+  output?: ResponseDTO,
+) &#x3D;&gt; {
+  const responseType &#x3D; output ? output : entity;
+
+  return applyDecorators(
+    Header(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;),
+    UseInterceptors(ClassSerializerInterceptor),
+    UseInterceptors(new CrudTransformSingleInterceptor(entity, output)),
+    ApiExtraModels(responseType),
+    ApiOkResponse({
+      schema: {
+        allOf: [{ $ref: getSchemaPath(responseType) }],
+      },
+    }),
+  );
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/auth/constants/index.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -632,7 +932,33 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;admin&#x27;</code>
+                        <i>Default value : </i><code>&#x27;administrator&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DEFAULT_SYSTEM_AUTH_PERMISSION_NAME"></a>
+                    <span class="name">
+                        <span ><b>DEFAULT_SYSTEM_AUTH_PERMISSION_NAME</b></span>
+                        <a href="#DEFAULT_SYSTEM_AUTH_PERMISSION_NAME"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;authentification&#x27;</code>
                     </td>
                 </tr>
 
@@ -669,10 +995,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="DEFAULT_SYSTEM_ROLES_PERMISSION_NAME"></a>
+                    <a name="DEFAULT_SYSTEM_PERMISSION_NAME"></a>
                     <span class="name">
-                        <span ><b>DEFAULT_SYSTEM_ROLES_PERMISSION_NAME</b></span>
-                        <a href="#DEFAULT_SYSTEM_ROLES_PERMISSION_NAME"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>DEFAULT_SYSTEM_PERMISSION_NAME</b></span>
+                        <a href="#DEFAULT_SYSTEM_PERMISSION_NAME"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -684,7 +1010,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;roles&#x27;</code>
+                        <i>Default value : </i><code>&#x27;system&#x27;</code>
                     </td>
                 </tr>
 
@@ -718,31 +1044,48 @@
         </tbody>
     </table>
 </section>
-    <h3>src/query/decorators.ts</h3>
+    <h3>src/auth/commands/create-user-handler.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="EntityAccessor"></a>
+                    <a name="generatePassword"></a>
                     <span class="name">
-                        <span ><b>EntityAccessor</b></span>
-                        <a href="#EntityAccessor"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>generatePassword</b></span>
+                        <a href="#generatePassword"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(options?: IEntityAccessorOptions) &#x3D;&gt; {
-  return function(object: Object, propertyKey: string) {
-    Reflect.defineMetadata(
-      ADMIN_FIELD_DECORATOR_KEY,
-      options || {},
-      object,
-      propertyKey,
-    );
-  };
-}</code>
+                        <i>Default value : </i><code>(
+  length &#x3D; 20,
+  characters &#x3D; &#x27;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~!@-#$&#x27;,
+) &#x3D;&gt;
+  Array.from(crypto.getRandomValues(new Uint32Array(length)))
+    .map(x &#x3D;&gt; characters[x % characters.length])
+    .join(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="log"></a>
+                    <span class="name">
+                        <span ><b>log</b></span>
+                        <a href="#log"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>console.log</code>
                     </td>
                 </tr>
 
@@ -750,22 +1093,22 @@
         </tbody>
     </table>
 </section>
-    <h3>src/query/decorators/entity-accessor.decorator.ts</h3>
+    <h3>src/auth/commands/create-system-permissions-handler.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="EntityAccessorValidation"></a>
+                    <a name="log"></a>
                     <span class="name">
-                        <span ><b>EntityAccessorValidation</b></span>
-                        <a href="#EntityAccessorValidation"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>log</b></span>
+                        <a href="#log"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>() &#x3D;&gt; UseGuards(EntityAccessorGuard)</code>
+                        <i>Default value : </i><code>console.log</code>
                     </td>
                 </tr>
 
@@ -858,28 +1201,22 @@
         </tbody>
     </table>
 </section>
-    <h3>src/query/constants/index.ts</h3>
+    <h3>src/auth/decorators/oauth2-token-required.decorator.ts</h3>
     <section data-compodoc="block-properties">
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="QUERY_MODULE_CONFIG_KEY"></a>
+                    <a name="OAuth2TokenRequired"></a>
                     <span class="name">
-                        <span ><b>QUERY_MODULE_CONFIG_KEY</b></span>
-                        <a href="#QUERY_MODULE_CONFIG_KEY"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>OAuth2TokenRequired</b></span>
+                        <a href="#OAuth2TokenRequired"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;AdminAuthConfig&#x27;</code>
+                        <i>Default value : </i><code>() &#x3D;&gt; UseGuards(AuthGuard(&#x27;access-token&#x27;))</code>
                     </td>
                 </tr>
 

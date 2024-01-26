@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -192,15 +192,15 @@ decorator @Oauth2Strategy(&#39;grant_type&#39;)</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getOauth2Response(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/ClientEntity.html" target="_self">ClientEntity</a>)</code>
+<code>getOauth2Response(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/Oauth2ClientEntity.html" target="_self">Oauth2ClientEntity</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">src/auth/interfaces/oauth2-grant-strategy.interface.ts:24</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/auth/interfaces/oauth2-grant-strategy.interface.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -237,7 +237,7 @@ decorator @Oauth2Strategy(&#39;grant_type&#39;)</p>
                                         <tr>
                                                 <td>client</td>
                                             <td>
-                                                            <code><a href="../classes/ClientEntity.html" target="_self" >ClientEntity</a></code>
+                                                            <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Oauth2ClientEntity</a></code>
                                             </td>
 
                                             <td>
@@ -273,7 +273,7 @@ decorator @Oauth2Strategy(&#39;grant_type&#39;)</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>validate(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/ClientEntity.html" target="_self">ClientEntity</a>)</code>
+<code>validate(request: <a href="../classes/OAuth2Request.html" target="_self">OAuth2Request</a>, client: <a href="../classes/Oauth2ClientEntity.html" target="_self">Oauth2ClientEntity</a>)</code>
                 </td>
             </tr>
 
@@ -318,7 +318,7 @@ decorator @Oauth2Strategy(&#39;grant_type&#39;)</p>
                                         <tr>
                                                 <td>client</td>
                                             <td>
-                                                            <code><a href="../classes/ClientEntity.html" target="_self" >ClientEntity</a></code>
+                                                            <code><a href="../classes/Oauth2ClientEntity.html" target="_self" >Oauth2ClientEntity</a></code>
                                             </td>
 
                                             <td>
@@ -347,9 +347,9 @@ decorator @Oauth2Strategy(&#39;grant_type&#39;)</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ClientEntity } from &#x27;../entities/client.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Oauth2ClientEntity } from &#x27;../entities/oauth2-client.entity&#x27;;
 import { OAuth2Request } from &#x27;../requests/oauth2-request.dto&#x27;;
-import { OAuth2Response } from &#x27;../resources/oauth2-response.dto&#x27;;
+import { OAuth2Response } from &#x27;../responses/oauth2-response.dto&#x27;;
 
 /**
  * Implement this interface to provide an oauth2 grant type handler. Handlers must be registered using the
@@ -362,7 +362,10 @@ export interface Oauth2GrantStrategyInterface {
    * @param request
    * @param client
    */
-  validate(request: OAuth2Request, client: ClientEntity): Promise&lt;boolean&gt;;
+  validate(
+    request: OAuth2Request,
+    client: Oauth2ClientEntity,
+  ): Promise&lt;boolean&gt;;
 
   /**
    * Get a request from the given response
@@ -372,7 +375,7 @@ export interface Oauth2GrantStrategyInterface {
    */
   getOauth2Response(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise&lt;OAuth2Response&gt;;
 }
 </code></pre>

@@ -8,6 +8,8 @@ import {
   UserPayload,
   ClientPayload,
 } from '../interfaces';
+import { InjectDataSource } from '@nestjs/typeorm';
+import { DataSource } from 'typeorm';
 
 @Injectable()
 export class AccessTokenStrategy extends PassportStrategy(
@@ -19,6 +21,8 @@ export class AccessTokenStrategy extends PassportStrategy(
     private readonly accessTokenRepository: AccessTokenRepositoryInterface,
     @Inject('UserLoaderInterface')
     private readonly userLoader: UserLoaderInterface,
+    @InjectDataSource()
+    private readonly dataSource: DataSource,
   ) {
     super();
   }
@@ -40,13 +44,11 @@ export class AccessTokenStrategy extends PassportStrategy(
     }
 
     if (accessToken.userId) {
-      const user = await this.userLoader.load(accessToken.userId);
-      return new UserPayload(
-        accessToken,
+      const user = await this.userLoader.load(
+        this.dataSource,
         accessToken.userId,
-        user.username,
-        user.email,
       );
+      return new UserPayload(accessToken, accessToken.userId, user.email);
     }
 
     return new ClientPayload(

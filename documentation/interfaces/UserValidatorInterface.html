@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -185,15 +185,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>validate(username, password)</code>
+<code>validate(datasource: DataSource, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/auth/interfaces/user-validator.interface.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/auth/interfaces/user-validator.interface.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -210,12 +210,28 @@
                                     <thead>
                                         <tr>
                                             <td>Name</td>
+                                                <td>Type</td>
                                             <td>Optional</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>username</td>
+                                                <td>datasource</td>
+                                            <td>
+                                                        <code>DataSource</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>email</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -225,6 +241,9 @@
                                         </tr>
                                         <tr>
                                                 <td>password</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
 
                                             <td>
                                                     No
@@ -236,11 +255,11 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../interfaces/UserInterface.html" target="_self" >Promise&lt;UserInterface&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../classes/UserClass.html" target="_self" >Promise&lt;UserClass&gt;</a></code>
 
                         </div>
                             <div class="io-description">
-                                <p>UserInterface</p>
+                                <p>UserClass</p>
 
                             </div>
                 </td>
@@ -253,7 +272,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UserInterface } from &#x27;./user.interface&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DataSource } from &#x27;typeorm&#x27;;
+import { UserClass } from &#x27;./user.interface&#x27;;
 
 /**
  * Validates that the usernanme exists and has the given password
@@ -262,13 +282,17 @@ export interface UserValidatorInterface {
   /**
    * Implement this method to validate the user existence
    *
-   * @param username
+   * @param email
    * @param password
    *
-   * @return UserInterface
+   * @return UserClass
    * @throws InvalidUserException
    */
-  validate(username, password): Promise&lt;UserInterface&gt;;
+  validate(
+    datasource: DataSource,
+    email: string,
+    password: string,
+  ): Promise&lt;UserClass&gt;;
 }
 </code></pre>
     </div>

@@ -1,6 +1,6 @@
-import { ClientEntity } from '../entities/client.entity';
+import { Oauth2ClientEntity } from '../entities/oauth2-client.entity';
 import { OAuth2Request } from '../requests/oauth2-request.dto';
-import { OAuth2Response } from '../resources/oauth2-response.dto';
+import { OAuth2Response } from '../responses/oauth2-response.dto';
 
 /**
  * Implement this interface to provide an oauth2 grant type handler. Handlers must be registered using the
@@ -13,7 +13,10 @@ export interface Oauth2GrantStrategyInterface {
    * @param request
    * @param client
    */
-  validate(request: OAuth2Request, client: ClientEntity): Promise<boolean>;
+  validate(
+    request: OAuth2Request,
+    client: Oauth2ClientEntity,
+  ): Promise<boolean>;
 
   /**
    * Get a request from the given response
@@ -23,6 +26,6 @@ export interface Oauth2GrantStrategyInterface {
    */
   getOauth2Response(
     request: OAuth2Request,
-    client: ClientEntity,
+    client: Oauth2ClientEntity,
   ): Promise<OAuth2Response>;
 }

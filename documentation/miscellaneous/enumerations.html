@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -119,13 +119,13 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#FilterMatch" title="src/query/decorators.ts" ><b>FilterMatch</b>&nbsp;&nbsp;&nbsp;(src/.../decorators.ts)</a>
+                            <a href="#FilterMatch" title="src/crud/interfaces/filter-match.ts" ><b>FilterMatch</b>&nbsp;&nbsp;&nbsp;(src/.../filter-match.ts)</a>
                         </li>
                         <li>
                             <a href="#Oauth2PayloadType" title="src/auth/interfaces/oauth2-payload.interface.ts" ><b>Oauth2PayloadType</b>&nbsp;&nbsp;&nbsp;(src/.../oauth2-payload.interface.ts)</a>
                         </li>
                         <li>
-                            <a href="#QueryOrder" title="src/query/interfaces/query-order.enum.ts" ><b>QueryOrder</b>&nbsp;&nbsp;&nbsp;(src/.../query-order.enum.ts)</a>
+                            <a href="#QueryOrder" title="src/crud/interfaces/query-order.enum.ts" ><b>QueryOrder</b>&nbsp;&nbsp;&nbsp;(src/.../query-order.enum.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -134,7 +134,7 @@
     </table>
 </section>
 
-    <h3>src/query/decorators.ts</h3>
+    <h3>src/crud/interfaces/filter-match.ts</h3>
     <section data-compodoc="block-enums">
         <table class="table table-sm table-bordered">
             <tbody>
@@ -146,12 +146,82 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
+                                &nbsp;EQUALS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>eq</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;UNEQUAL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>ne</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;GREATHER
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>gt</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;GREATHER_OR_EQUAL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>gte</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LOWER_OR_EQUAL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>lte</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LOWER
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>lt</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
                                 &nbsp;STARTS_WITH
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;STARTS_OR_ENDS
+                                <i>Value : </i><code>starts</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LIKE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>like</code>
                             </td>
                         </tr>
                         <tr>
@@ -161,7 +231,37 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;EXACT
+                                <i>Value : </i><code>ends</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;NOT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>not</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;IS_NULL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>isnull</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;NOT_NULL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>notnull</code>
                             </td>
                         </tr>
             </tbody>
@@ -206,7 +306,7 @@
             </tbody>
         </table>
 </section>
-    <h3>src/query/interfaces/query-order.enum.ts</h3>
+    <h3>src/crud/interfaces/query-order.enum.ts</h3>
     <section data-compodoc="block-enums">
         <table class="table table-sm table-bordered">
             <tbody>

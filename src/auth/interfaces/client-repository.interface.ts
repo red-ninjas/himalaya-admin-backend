@@ -1,4 +1,4 @@
-import { ClientEntity } from '../entities/client.entity';
+import { Oauth2ClientEntity } from '../entities/oauth2-client.entity';
 
 /**
  * This is the main repository you have to implement if you want to
@@ -12,7 +12,7 @@ export interface ClientRepositoryInterface {
    *
    * @throws ClientNotFoundException
    */
-  find(id: string): Promise<ClientEntity>;
+  find(id: string): Promise<Oauth2ClientEntity>;
 
   /**
    * Finds a client using its clientId
@@ -21,7 +21,7 @@ export interface ClientRepositoryInterface {
    *
    * @throws ClientNotFoundException
    */
-  findByClientId(clientId: string): Promise<ClientEntity>;
+  findByClientId(clientId: string): Promise<Oauth2ClientEntity>;
 
   /**
    * Finds a client using its name
@@ -30,12 +30,12 @@ export interface ClientRepositoryInterface {
    *
    * @throws ClientNotFoundException
    */
-  findByName(name: string): Promise<ClientEntity>;
+  findByName(name: string): Promise<Oauth2ClientEntity>;
 
   /**
    * Create a new oAuth2 client
    *
    * @param client
    */
-  create(client: ClientEntity): Promise<ClientEntity>;
+  create(client: Oauth2ClientEntity): Promise<Oauth2ClientEntity>;
 }

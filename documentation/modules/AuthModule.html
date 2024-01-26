@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -158,8 +158,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="76"
-                                    class="link-to-prism">src/auth/auth.module.ts:76</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/auth/auth.module.ts:101</a></div>
                         </td>
                     </tr>
 
@@ -227,8 +227,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="133"
-                                    class="link-to-prism">src/auth/auth.module.ts:133</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="186"
+                                    class="link-to-prism">src/auth/auth.module.ts:186</a></div>
                         </td>
                     </tr>
 
@@ -257,16 +257,35 @@
   Module,
   OnModuleInit,
 } from &#x27;@nestjs/common&#x27;;
-import { AccessTokenEntity, ClientEntity, ClientRolesEntity } from &#x27;./entities&#x27;;
+import { JwtModule } from &#x27;@nestjs/jwt&#x27;;
+import {
+  Oauth2AccessTokenEntity,
+  Oauth2ClientEntity,
+  AuthPermissionEntity,
+  AuthPermissionGroupEntity,
+  AuthRoleAssignmentEntity,
+} from &#x27;./entities&#x27;;
 
+import { ScheduleModule } from &#x27;@nestjs/schedule&#x27;;
 import { Oauth2GrantStrategyRegistry, StrategyExplorer } from &#x27;./services&#x27;;
 
 import { CqrsModule } from &#x27;@nestjs/cqrs&#x27;;
 import { TypeOrmModule } from &#x27;@nestjs/typeorm&#x27;;
+import { JwtAuthModule } from &#x27;../jwt/jwt-auth.module&#x27;;
+import { CrudModule } from &#x27;../crud/crud.module&#x27;;
 import { OAUTH2_SERVER_OPTIONS } from &#x27;./auth.constants&#x27;;
-import { CreateAccessTokenHandler, CreateClientHandler } from &#x27;./commands&#x27;;
+import {
+  CreateAccessTokenHandler,
+  CreateClientHandler,
+  CreateSystemPermissionHandler,
+} from &#x27;./commands&#x27;;
+import { CreateUserHandle } from &#x27;./commands/create-user-handler&#x27;;
 import { AuthController } from &#x27;./controllers&#x27;;
-import { RoleEntity } from &#x27;./entities/auth-role.entity&#x27;;
+import { Oauth2Controller } from &#x27;./controllers/oauth2.controller&#x27;;
+import { RolesController } from &#x27;./controllers/roles.controller&#x27;;
+import { TokenController } from &#x27;./controllers/token.controller&#x27;;
+import { AuthRoleEntity } from &#x27;./entities/auth-role.entity&#x27;;
+import { AuthJwtTokenEntity } from &#x27;./entities/auth-jwt-token.entity&#x27;;
 import { AccessTokenRepository, ClientRepository } from &#x27;./repository&#x27;;
 import {
   AccessTokenStrategy,
@@ -274,9 +293,15 @@ import {
   PasswordStrategy,
   RefreshTokenStrategy,
 } from &#x27;./strategies&#x27;;
+import { AuthTasksService } from &#x27;./tasks/auth-tasks-service&#x27;;
 import { OAuth2Options } from &#x27;./types&#x27;;
 
-export const CommandHandlers &#x3D; [CreateClientHandler, CreateAccessTokenHandler];
+export const CommandHandlers &#x3D; [
+  CreateClientHandler,
+  CreateAccessTokenHandler,
+  CreateUserHandle,
+  CreateSystemPermissionHandler,
+];
 
 export const EventHandlers &#x3D; [];
 
@@ -346,22 +371,47 @@ export class AuthModule implements OnModuleInit {
       inject: [OAUTH2_SERVER_OPTIONS],
     };
 
+    const systemAdminProvider &#x3D; {
+      provide: &#x27;SystemAdminInterface&#x27;,
+      useFactory: async options &#x3D;&gt; {
+        return options.systemAdminCreator;
+      },
+      inject: [OAUTH2_SERVER_OPTIONS],
+    };
+
     return {
       module: AuthModule,
       imports: [
+        JwtAuthModule,
+        JwtModule.register({
+          global: true,
+          secret: options.jwtSecret,
+          signOptions: { expiresIn: &#x27;30d&#x27; },
+        }),
         CqrsModule,
         TypeOrmModule.forFeature([
-          ClientEntity,
-          AccessTokenEntity,
-          RoleEntity,
-          ClientRolesEntity,
+          AuthJwtTokenEntity,
+          AuthPermissionGroupEntity,
+          AuthPermissionEntity,
+          AuthRoleEntity,
+          AuthRoleAssignmentEntity,
+          Oauth2ClientEntity,
+          Oauth2AccessTokenEntity,
         ]),
+        CrudModule.forFeature(),
+        ScheduleModule.forRoot(),
       ],
-      controllers: [AuthController],
+      controllers: [
+        Oauth2Controller,
+        AuthController,
+        TokenController,
+        RolesController,
+      ],
       providers: [
         oAuth2OptionsProvider,
         userValidatorProvider,
         userLoaderProvider,
+        systemAdminProvider,
         ...Providers,
         ...Services,
         ...Resolvers,
@@ -371,12 +421,15 @@ export class AuthModule implements OnModuleInit {
         ...QueryHandlers,
         ...Sagas,
         AccessTokenStrategy,
+        AuthTasksService,
       ],
       exports: [
         ...Providers,
         ...ServiceNames,
         userValidatorProvider,
         userLoaderProvider,
+        systemAdminProvider,
+        JwtModule,
       ],
     };
   }

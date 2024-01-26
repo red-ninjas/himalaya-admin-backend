@@ -15,7 +15,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">@himalaya/dashboard-nest documentation</a>
+                    <a href="index.html" data-type="index-link">@himalaya/admin-backend documentation</a>
                 </li>
 
                 <li class="divider"></li>
@@ -62,24 +62,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AuthModule.html" data-type="entity-link" >AuthModule</a>
                             </li>
                             <li class="link">
-                                <a href="modules/AuthSeedingModule.html" data-type="entity-link" >AuthSeedingModule</a>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-bs-toggle="collapse" ${ isNormalMode ?
-                                        'data-bs-target="#injectables-links-module-AuthSeedingModule-f3d2aa632b85f5f551a3ee1f3e9cc881947949f2bf3f558a75479cb794d7a8b96a7c506b5b129cef94eff302f097b7146f6f2f9fac0de3bea8bce3c2e6ce9ddf"' : 'data-bs-target="#xs-injectables-links-module-AuthSeedingModule-f3d2aa632b85f5f551a3ee1f3e9cc881947949f2bf3f558a75479cb794d7a8b96a7c506b5b129cef94eff302f097b7146f6f2f9fac0de3bea8bce3c2e6ce9ddf"' }>
-                                        <span class="icon ion-md-arrow-round-down"></span>
-                                        <span>Injectables</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthSeedingModule-f3d2aa632b85f5f551a3ee1f3e9cc881947949f2bf3f558a75479cb794d7a8b96a7c506b5b129cef94eff302f097b7146f6f2f9fac0de3bea8bce3c2e6ce9ddf"' :
-                                        'id="xs-injectables-links-module-AuthSeedingModule-f3d2aa632b85f5f551a3ee1f3e9cc881947949f2bf3f558a75479cb794d7a8b96a7c506b5b129cef94eff302f097b7146f6f2f9fac0de3bea8bce3c2e6ce9ddf"' }>
-                                        <li class="link">
-                                            <a href="injectables/AuthSeedingService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AuthSeedingService</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                <a href="modules/CliModule.html" data-type="entity-link" >CliModule</a>
                             </li>
                             <li class="link">
-                                <a href="modules/QueryModule.html" data-type="entity-link" >QueryModule</a>
+                                <a href="modules/CrudModule.html" data-type="entity-link" >CrudModule</a>
+                            </li>
+                            <li class="link">
+                                <a href="modules/JwtAuthModule.html" data-type="entity-link" >JwtAuthModule</a>
                             </li>
                 </ul>
                 </li>
@@ -95,7 +84,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="controllers/AuthController.html" data-type="entity-link" >AuthController</a>
                                 </li>
                                 <li class="link">
-                                    <a href="controllers/QueryController.html" data-type="entity-link" >QueryController</a>
+                                    <a href="controllers/Oauth2Controller.html" data-type="entity-link" >Oauth2Controller</a>
+                                </li>
+                                <li class="link">
+                                    <a href="controllers/RolesController.html" data-type="entity-link" >RolesController</a>
+                                </li>
+                                <li class="link">
+                                    <a href="controllers/TokenController.html" data-type="entity-link" >TokenController</a>
                                 </li>
                             </ul>
                         </li>
@@ -108,22 +103,25 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="entities-links"' : 'id="xs-entities-links"' }>
                                 <li class="link">
-                                    <a href="entities/AccessTokenEntity.html" data-type="entity-link" >AccessTokenEntity</a>
+                                    <a href="entities/AuthJwtTokenEntity.html" data-type="entity-link" >AuthJwtTokenEntity</a>
                                 </li>
                                 <li class="link">
-                                    <a href="entities/ClientEntity.html" data-type="entity-link" >ClientEntity</a>
+                                    <a href="entities/AuthPermissionEntity.html" data-type="entity-link" >AuthPermissionEntity</a>
                                 </li>
                                 <li class="link">
-                                    <a href="entities/ClientRolesEntity.html" data-type="entity-link" >ClientRolesEntity</a>
+                                    <a href="entities/AuthPermissionGroupEntity.html" data-type="entity-link" >AuthPermissionGroupEntity</a>
                                 </li>
                                 <li class="link">
-                                    <a href="entities/PermissionEntity.html" data-type="entity-link" >PermissionEntity</a>
+                                    <a href="entities/AuthRoleAssignmentEntity.html" data-type="entity-link" >AuthRoleAssignmentEntity</a>
                                 </li>
                                 <li class="link">
-                                    <a href="entities/PermissionGroupEntity.html" data-type="entity-link" >PermissionGroupEntity</a>
+                                    <a href="entities/AuthRoleEntity.html" data-type="entity-link" >AuthRoleEntity</a>
                                 </li>
                                 <li class="link">
-                                    <a href="entities/RoleEntity.html" data-type="entity-link" >RoleEntity</a>
+                                    <a href="entities/Oauth2AccessTokenEntity.html" data-type="entity-link" >Oauth2AccessTokenEntity</a>
+                                </li>
+                                <li class="link">
+                                    <a href="entities/Oauth2ClientEntity.html" data-type="entity-link" >Oauth2ClientEntity</a>
                                 </li>
                             </ul>
                         </li>
@@ -142,25 +140,25 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AccessTokenNotFoundException.html" data-type="entity-link" >AccessTokenNotFoundException</a>
                             </li>
                             <li class="link">
+                                <a href="classes/AuthJwtTokenResponse.html" data-type="entity-link" >AuthJwtTokenResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AuthLoginTokenResponse.html" data-type="entity-link" >AuthLoginTokenResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AuthRoleAssignmentEntity.html" data-type="entity-link" >AuthRoleAssignmentEntity</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ClientCreatedEvent.html" data-type="entity-link" >ClientCreatedEvent</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ClientCredentialsStrategy.html" data-type="entity-link" >ClientCredentialsStrategy</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ClientEntity.html" data-type="entity-link" >ClientEntity</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/ClientNotFoundException.html" data-type="entity-link" >ClientNotFoundException</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ClientPayload.html" data-type="entity-link" >ClientPayload</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/ClientRolesEntity.html" data-type="entity-link" >ClientRolesEntity</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/ComplexQueryRequest.html" data-type="entity-link" >ComplexQueryRequest</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CreateAccessTokenCommand.html" data-type="entity-link" >CreateAccessTokenCommand</a>
@@ -175,10 +173,52 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CreateClientHandler.html" data-type="entity-link" >CreateClientHandler</a>
                             </li>
                             <li class="link">
-                                <a href="classes/FilterableRequest.html" data-type="entity-link" >FilterableRequest</a>
+                                <a href="classes/CreateSystemPermissionCommand.html" data-type="entity-link" >CreateSystemPermissionCommand</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CreateSystemPermissionHandler.html" data-type="entity-link" >CreateSystemPermissionHandler</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CreateSystemPermissionsCli.html" data-type="entity-link" >CreateSystemPermissionsCli</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CreateUserCli.html" data-type="entity-link" >CreateUserCli</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CreateUserCommand.html" data-type="entity-link" >CreateUserCommand</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CreateUserHandle.html" data-type="entity-link" >CreateUserHandle</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CrudFilterableRequest.html" data-type="entity-link" >CrudFilterableRequest</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CrudPaginationMeta.html" data-type="entity-link" >CrudPaginationMeta</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CrudPaginationRequest.html" data-type="entity-link" >CrudPaginationRequest</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CrudPaginationResource.html" data-type="entity-link" >CrudPaginationResource</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CrudSettingsStorage.html" data-type="entity-link" >CrudSettingsStorage</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CrudSortableRequest.html" data-type="entity-link" >CrudSortableRequest</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CrudTransformPaginationInterceptor.html" data-type="entity-link" >CrudTransformPaginationInterceptor</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CrudTransformSingleInterceptor.html" data-type="entity-link" >CrudTransformSingleInterceptor</a>
                             </li>
                             <li class="link">
                                 <a href="classes/InvalidUserException.html" data-type="entity-link" >InvalidUserException</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Oauth2ClientEntity.html" data-type="entity-link" >Oauth2ClientEntity</a>
                             </li>
                             <li class="link">
                                 <a href="classes/OAuth2Request.html" data-type="entity-link" >OAuth2Request</a>
@@ -187,25 +227,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/OAuth2Response.html" data-type="entity-link" >OAuth2Response</a>
                             </li>
                             <li class="link">
-                                <a href="classes/PaginationMeta.html" data-type="entity-link" >PaginationMeta</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/PasswordStrategy.html" data-type="entity-link" >PasswordStrategy</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/QueryPaginationResource.html" data-type="entity-link" >QueryPaginationResource</a>
                             </li>
                             <li class="link">
                                 <a href="classes/RefreshTokenStrategy.html" data-type="entity-link" >RefreshTokenStrategy</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SimpleQueryRequest.html" data-type="entity-link" >SimpleQueryRequest</a>
+                                <a href="classes/SetupCli.html" data-type="entity-link" >SetupCli</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SortableRequest.html" data-type="entity-link" >SortableRequest</a>
+                                <a href="classes/SignInDto.html" data-type="entity-link" >SignInDto</a>
                             </li>
                             <li class="link">
-                                <a href="classes/System1705059848171.html" data-type="entity-link" >System1705059848171</a>
+                                <a href="classes/TokenResponse.html" data-type="entity-link" >TokenResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/UserClass.html" data-type="entity-link" >UserClass</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UserPayload.html" data-type="entity-link" >UserPayload</a>
@@ -230,16 +267,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/AdminLoader.html" data-type="entity-link" >AdminLoader</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/AuthSeedingService.html" data-type="entity-link" >AuthSeedingService</a>
+                                    <a href="injectables/AuthTasksService.html" data-type="entity-link" >AuthTasksService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/ClientRepository.html" data-type="entity-link" >ClientRepository</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/Oauth2GrantStrategyRegistry.html" data-type="entity-link" >Oauth2GrantStrategyRegistry</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/QueryService.html" data-type="entity-link" >QueryService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/StrategyExplorer.html" data-type="entity-link" >StrategyExplorer</a>
@@ -255,7 +289,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="guards-links"' : 'id="xs-guards-links"' }>
                             <li class="link">
-                                <a href="guards/EntityAccessorGuard.html" data-type="entity-link" >EntityAccessorGuard</a>
+                                <a href="guards/CrudEntityDetectionGuard.html" data-type="entity-link" >CrudEntityDetectionGuard</a>
+                            </li>
+                            <li class="link">
+                                <a href="guards/CrudSearchRequestFiltersGuard.html" data-type="entity-link" >CrudSearchRequestFiltersGuard</a>
+                            </li>
+                            <li class="link">
+                                <a href="guards/CrudSearchRequestSortablesGuard.html" data-type="entity-link" >CrudSearchRequestSortablesGuard</a>
+                            </li>
+                            <li class="link">
+                                <a href="guards/JwtTokenGuard.html" data-type="entity-link" >JwtTokenGuard</a>
                             </li>
                         </ul>
                     </li>
@@ -274,13 +317,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/AdminConfig.html" data-type="entity-link" >AdminConfig</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/BasicCommandOptions.html" data-type="entity-link" >BasicCommandOptions</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ClientRepositoryInterface.html" data-type="entity-link" >ClientRepositoryInterface</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IEntityAccessorOptions.html" data-type="entity-link" >IEntityAccessorOptions</a>
+                                <a href="interfaces/ICrudPaginationMetaParameters.html" data-type="entity-link" >ICrudPaginationMetaParameters</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ITypeOrmAddionalFields.html" data-type="entity-link" >ITypeOrmAddionalFields</a>
+                                <a href="interfaces/ICrudSearchRequestOptions.html" data-type="entity-link" >ICrudSearchRequestOptions</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IQueryController.html" data-type="entity-link" >IQueryController</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Oauth2GrantStrategyInterface.html" data-type="entity-link" >Oauth2GrantStrategyInterface</a>
@@ -295,7 +344,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/Oauth2StrategyOptions.html" data-type="entity-link" >Oauth2StrategyOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/PaginationMetaParameters.html" data-type="entity-link" >PaginationMetaParameters</a>
+                                <a href="interfaces/QueryDictionary.html" data-type="entity-link" >QueryDictionary</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/QueryModuleOptions.html" data-type="entity-link" >QueryModuleOptions</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/QueryOptions.html" data-type="entity-link" >QueryOptions</a>
@@ -304,7 +356,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ResourceDictonary.html" data-type="entity-link" >ResourceDictonary</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/UserInterface.html" data-type="entity-link" >UserInterface</a>
+                                <a href="interfaces/SystemAdminInterface.html" data-type="entity-link" >SystemAdminInterface</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/UserClassPayload.html" data-type="entity-link" >UserClassPayload</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/UserLoaderInterface.html" data-type="entity-link" >UserLoaderInterface</a>

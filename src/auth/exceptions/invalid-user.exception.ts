@@ -5,17 +5,14 @@ import { UnauthorizedException } from '@nestjs/common';
  */
 export class InvalidUserException extends UnauthorizedException {
   /**
-   * Kind message with username and password
+   * Kind message with email and password
    *
-   * @param username
+   * @param email
    * @param password
    */
-  static withUsernameAndPassword(
-    username: string,
-    password: string,
-  ): InvalidUserException {
+  static wrongCredentials(): InvalidUserException {
     return new InvalidUserException(
-      `The user with username "${username}" and password "${password}" was not found`,
+      `We couldn't find any users with these credentials.`,
     );
   }
 

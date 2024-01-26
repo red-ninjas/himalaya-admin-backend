@@ -6,16 +6,35 @@ import {
   Module,
   OnModuleInit,
 } from '@nestjs/common';
-import { AccessTokenEntity, ClientEntity, ClientRolesEntity } from './entities';
+import { JwtModule } from '@nestjs/jwt';
+import {
+  Oauth2AccessTokenEntity,
+  Oauth2ClientEntity,
+  AuthPermissionEntity,
+  AuthPermissionGroupEntity,
+  AuthRoleAssignmentEntity,
+} from './entities';
 
+import { ScheduleModule } from '@nestjs/schedule';
 import { Oauth2GrantStrategyRegistry, StrategyExplorer } from './services';
 
 import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { JwtAuthModule } from '../jwt/jwt-auth.module';
+import { CrudModule } from '../crud/crud.module';
 import { OAUTH2_SERVER_OPTIONS } from './auth.constants';
-import { CreateAccessTokenHandler, CreateClientHandler } from './commands';
+import {
+  CreateAccessTokenHandler,
+  CreateClientHandler,
+  CreateSystemPermissionHandler,
+} from './commands';
+import { CreateUserHandle } from './commands/create-user-handler';
 import { AuthController } from './controllers';
-import { RoleEntity } from './entities/auth-role.entity';
+import { Oauth2Controller } from './controllers/oauth2.controller';
+import { RolesController } from './controllers/roles.controller';
+import { TokenController } from './controllers/token.controller';
+import { AuthRoleEntity } from './entities/auth-role.entity';
+import { AuthJwtTokenEntity } from './entities/auth-jwt-token.entity';
 import { AccessTokenRepository, ClientRepository } from './repository';
 import {
   AccessTokenStrategy,
@@ -23,12 +42,15 @@ import {
   PasswordStrategy,
   RefreshTokenStrategy,
 } from './strategies';
+import { AuthTasksService } from './tasks/auth-tasks-service';
 import { OAuth2Options } from './types';
-import { QueryModule } from '../query/query.module';
-import { TokenController } from './controllers/token.controller';
-import { RolesController } from './controllers/roles.controller';
 
-export const CommandHandlers = [CreateClientHandler, CreateAccessTokenHandler];
+export const CommandHandlers = [
+  CreateClientHandler,
+  CreateAccessTokenHandler,
+  CreateUserHandle,
+  CreateSystemPermissionHandler,
+];
 
 export const EventHandlers = [];
 
@@ -98,23 +120,47 @@ export class AuthModule implements OnModuleInit {
       inject: [OAUTH2_SERVER_OPTIONS],
     };
 
+    const systemAdminProvider = {
+      provide: 'SystemAdminInterface',
+      useFactory: async options => {
+        return options.systemAdminCreator;
+      },
+      inject: [OAUTH2_SERVER_OPTIONS],
+    };
+
     return {
       module: AuthModule,
       imports: [
+        JwtAuthModule,
+        JwtModule.register({
+          global: true,
+          secret: options.jwtSecret,
+          signOptions: { expiresIn: '30d' },
+        }),
         CqrsModule,
         TypeOrmModule.forFeature([
-          ClientEntity,
-          AccessTokenEntity,
-          RoleEntity,
-          ClientRolesEntity,
+          AuthJwtTokenEntity,
+          AuthPermissionGroupEntity,
+          AuthPermissionEntity,
+          AuthRoleEntity,
+          AuthRoleAssignmentEntity,
+          Oauth2ClientEntity,
+          Oauth2AccessTokenEntity,
         ]),
-        QueryModule.forFeature([AccessTokenEntity, RoleEntity]),
+        CrudModule.forFeature(),
+        ScheduleModule.forRoot(),
       ],
-      controllers: [AuthController, TokenController, RolesController],
+      controllers: [
+        Oauth2Controller,
+        AuthController,
+        TokenController,
+        RolesController,
+      ],
       providers: [
         oAuth2OptionsProvider,
         userValidatorProvider,
         userLoaderProvider,
+        systemAdminProvider,
         ...Providers,
         ...Services,
         ...Resolvers,
@@ -124,12 +170,15 @@ export class AuthModule implements OnModuleInit {
         ...QueryHandlers,
         ...Sagas,
         AccessTokenStrategy,
+        AuthTasksService,
       ],
       exports: [
         ...Providers,
         ...ServiceNames,
         userValidatorProvider,
         userLoaderProvider,
+        systemAdminProvider,
+        JwtModule,
       ],
     };
   }

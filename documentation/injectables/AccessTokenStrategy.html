@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -173,12 +173,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(accessTokenRepository: <a href="../interfaces/AccessTokenRepositoryInterface.html" target="_self">AccessTokenRepositoryInterface</a>, userLoader: <a href="../interfaces/UserLoaderInterface.html" target="_self">UserLoaderInterface</a>)</code>
+<code>constructor(accessTokenRepository: <a href="../interfaces/AccessTokenRepositoryInterface.html" target="_self">AccessTokenRepositoryInterface</a>, userLoader: <a href="../interfaces/UserLoaderInterface.html" target="_self">UserLoaderInterface</a>, dataSource: DataSource)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/auth/strategies/access-token.strategy.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/auth/strategies/access-token.strategy.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -212,6 +212,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../interfaces/UserLoaderInterface.html" target="_self" >UserLoaderInterface</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataSource</td>
+                                                  
+                                                        <td>
+                                                                    <code>DataSource</code>
                                                         </td>
                                                   
                                                     <td>
@@ -255,8 +267,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">src/auth/strategies/access-token.strategy.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/auth/strategies/access-token.strategy.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -320,6 +332,8 @@ import {
   UserPayload,
   ClientPayload,
 } from &#x27;../interfaces&#x27;;
+import { InjectDataSource } from &#x27;@nestjs/typeorm&#x27;;
+import { DataSource } from &#x27;typeorm&#x27;;
 
 @Injectable()
 export class AccessTokenStrategy extends PassportStrategy(
@@ -331,6 +345,8 @@ export class AccessTokenStrategy extends PassportStrategy(
     private readonly accessTokenRepository: AccessTokenRepositoryInterface,
     @Inject(&#x27;UserLoaderInterface&#x27;)
     private readonly userLoader: UserLoaderInterface,
+    @InjectDataSource()
+    private readonly dataSource: DataSource,
   ) {
     super();
   }
@@ -352,13 +368,11 @@ export class AccessTokenStrategy extends PassportStrategy(
     }
 
     if (accessToken.userId) {
-      const user &#x3D; await this.userLoader.load(accessToken.userId);
-      return new UserPayload(
-        accessToken,
+      const user &#x3D; await this.userLoader.load(
+        this.dataSource,
         accessToken.userId,
-        user.username,
-        user.email,
       );
+      return new UserPayload(accessToken, accessToken.userId, user.email);
     }
 
     return new ClientPayload(

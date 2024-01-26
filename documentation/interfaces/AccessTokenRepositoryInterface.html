@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>@himalaya/dashboard-nest documentation</title>
+        <title>@himalaya/admin-backend documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -72,7 +72,7 @@
           </script>
 
         <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
-            <a href="../" class="navbar-brand">@himalaya/dashboard-nest documentation</a>
+            <a href="../" class="navbar-brand">@himalaya/admin-backend documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -198,7 +198,7 @@ Application</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>create(accessToken: <a href="../entitys/AccessTokenEntity.html" target="_self">AccessTokenEntity</a>)</code>
+<code>create(accessToken: <a href="../entitys/Oauth2AccessTokenEntity.html" target="_self">Oauth2AccessTokenEntity</a>)</code>
                 </td>
             </tr>
 
@@ -231,7 +231,7 @@ Application</p>
                                         <tr>
                                                 <td>accessToken</td>
                                             <td>
-                                                            <code><a href="../entitys/AccessTokenEntity.html" target="_self" >AccessTokenEntity</a></code>
+                                                            <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Oauth2AccessTokenEntity</a></code>
                                             </td>
 
                                             <td>
@@ -244,7 +244,7 @@ Application</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../entitys/AccessTokenEntity.html" target="_self" >Promise&lt;AccessTokenEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Promise&lt;Oauth2AccessTokenEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -313,7 +313,7 @@ Application</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../entitys/AccessTokenEntity.html" target="_self" >Promise&lt;AccessTokenEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Promise&lt;Oauth2AccessTokenEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -382,7 +382,7 @@ Application</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../entitys/AccessTokenEntity.html" target="_self" >Promise&lt;AccessTokenEntity&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../entitys/Oauth2AccessTokenEntity.html" target="_self" >Promise&lt;Oauth2AccessTokenEntity&gt;</a></code>
 
                         </div>
                             <div class="io-description">
@@ -398,7 +398,7 @@ Application</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AccessTokenEntity } from &#x27;../entities/accoss-token.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Oauth2AccessTokenEntity } from &#x27;../entities/oauth2-accoss-token.entity&#x27;;
 
 /**
  * Main interface you have to implement if you want to deal with access tokens in your
@@ -412,7 +412,7 @@ export interface AccessTokenRepositoryInterface {
    *
    * @throws AccessTokenNotFoundException
    */
-  findByAccessToken(accessToken: string): Promise&lt;AccessTokenEntity&gt;;
+  findByAccessToken(accessToken: string): Promise&lt;Oauth2AccessTokenEntity&gt;;
 
   /**
    * Find by access token
@@ -421,14 +421,16 @@ export interface AccessTokenRepositoryInterface {
    *
    * @throws AccessTokenNotFoundException
    */
-  findByRefreshToken(refreshToken: string): Promise&lt;AccessTokenEntity&gt;;
+  findByRefreshToken(refreshToken: string): Promise&lt;Oauth2AccessTokenEntity&gt;;
 
   /**
    * Register a new access token into the storage
    *
    * @param accessToken
    */
-  create(accessToken: AccessTokenEntity): Promise&lt;AccessTokenEntity&gt;;
+  create(
+    accessToken: Oauth2AccessTokenEntity,
+  ): Promise&lt;Oauth2AccessTokenEntity&gt;;
 }
 </code></pre>
     </div>
